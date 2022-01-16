@@ -1,0 +1,13 @@
+[data-background] {
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center center;
+}
+
+.course-date-section h3 {
+  font-weight: 800;
+  font-size: 1.75rem;
+  color: #0facf3;
+}
+
+/*# sourceMappingURL=theoriemakkie-addons.css.map */
