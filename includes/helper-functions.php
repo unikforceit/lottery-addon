@@ -9,12 +9,10 @@ function theoriemakkie_check_odd_even($data){
 
     return $data;
 }
-function theoriemakkie_course_meta($opt)
+function theoriemakkie_course_meta($id, $default = null)
 {
     $options = get_post_meta(get_the_ID(), '_coursedatemeta', true);
-    if (isset($options[$opt])) {
-        return $options[$opt];
-    }
+    return ( isset( $options[$id] ) ) ? $options[$id] : $default;
 }
 function theoriemakkie_client_ratings($count){
     $out = '';
@@ -49,19 +47,17 @@ function theoriemakkie_cats_arr($tax = 'category') {
     }
     return $categories;
 }
-function theoriemakkie_single_category($post_type = 'post') {
-    if ( $post_type == get_post_type() ) {
-        $categories = get_the_category();
+function theoriemakkie_single_category() {
+        $categories = get_categories(['taxonomy'=>'week']);
         $separator = ',';
         $output = '';
         if($categories){
             foreach($categories as $category) {
-                $output .= '<a href="'.get_category_link( $category->term_id ).'">'.$category->cat_name.'</a>'.$separator;
+                $output .= '<a href="'.get_category_link( $category->cat_ID ).'">'.$category->cat_name.'</a>'.$separator;
             }
             $cat= trim($output, $separator);
             return $cat;
         }
-    }
 }
 
 function theoriemakkie_posts_arr($post_type = 'post'){

@@ -4,9 +4,51 @@
   background-position: center center;
 }
 .course-date-section {
+  form {
+    text-align: center;
+  }
   h3{
     font-weight: 800;
     font-size: 1.75rem;
     color: #0facf3;
+  }
+  table{
+    border-spacing: 0 .5rem;
+    border-collapse: separate;
+  }
+  table, td, th {
+    border: none;
+  }
+  tr{
+    background: #fff;
+    border: 1px solid #d1d1d1;
+    &:hover{
+      background: #f5f5f5;
+    }
+  }
+  td{
+    font-weight: 500;
+    padding: 0.4rem;
+    color: #000;
+    .date_before{
+      margin-right: 5px;
+    }
+    svg{
+      margin-right: 5px;
+    }
+  }
+  a {
+    background: #de0b80;
+    border: #de0b80;
+    color: #eee;
+    padding: 4px 15px;
+    font-weight: 500;
+    display: inline-block;
+    text-align: center;
+    white-space: nowrap;
+    vertical-align: middle;
+  }
+  .table-button{
+    text-align: right;
   }
 }

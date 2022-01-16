@@ -37,51 +37,29 @@ class theoriemakkie_coursedate extends Widget_Base
             ]
         );
         $this->add_control(
-            'query_type',
-            [
-                'label' => __('Query type', 'theoriemakkie'),
-                'type' => Controls_Manager::SELECT,
-                'default' => 'individual',
-                'options' => [
-                    'category' => __('Week', 'theoriemakkie'),
-                    'individual' => __('Course Date', 'theoriemakkie'),
-                ],
-            ]
-        );
-
-        $this->add_control(
             'cat_query',
             [
                 'label' => __('Week', 'theoriemakkie'),
-                'type' => Controls_Manager::SELECT2,
+                'type' => \Elementor\Controls_Manager::SELECT2,
                 'options' => theoriemakkie_cats_arr('week'),
-                'multiple' => false,
-                'label_block' => true,
-                'condition' => [
-                    'query_type' => 'category',
-                ],
-            ]
-        );
-
-        $this->add_control(
-            'id_query',
-            [
-                'label' => __('Course Date', 'theoriemakkie'),
-                'type' => Controls_Manager::SELECT2,
-                'options' => theoriemakkie_posts_arr('coursedate'),
                 'multiple' => true,
                 'label_block' => true,
-                'condition' => [
-                    'query_type' => 'individual',
-                ],
+            ]
+        );
+        $this->add_control(
+            'show_cat',
+            [
+                'label' => esc_html__('Show Category', 'theoriemakkie'),
+                'type' => \Elementor\Controls_Manager::NUMBER,
+                'default' => esc_html__('5', 'theoriemakkie'),
             ]
         );
         $this->add_control(
             'posts_per_page',
             [
                 'label' => __('Posts Per Page', 'theoriemakkie'),
-                'type' => Controls_Manager::NUMBER,
-                'default' => 5,
+                'type' => \Elementor\Controls_Manager::NUMBER,
+                'default' => 6,
             ]
         );
         $this->end_controls_section();
@@ -240,64 +218,79 @@ class theoriemakkie_coursedate extends Widget_Base
 
         $tax_args = array(
             'taxonomy' => 'week',
-            'number' => $settings['posts_per_page'],
+            'number' => $settings['show_cat'],
             'include' => $settings['cat_query'],
             'hide_empty' => false,
         );
         $categories = get_terms($tax_args);
-
-        $per_page = $settings['posts_per_page'];
-        $cat = $settings['cat_query'];
-        $id = $settings['id_query'];
-
-
-        if ($settings['query_type'] == 'category') {
-            $query_args = array(
-                'post_type' => 'coursedate',
-                'posts_per_page' => $per_page,
-                'tax_query' => array(
-                    array(
-                        'taxonomy' => 'week',
-                        'field' => 'term_id',
-                        'terms' => $cat,
-                    ),
-                ),
-            );
-        }
-
-        if ($settings['query_type'] == 'individual') {
-            $query_args = array(
-                'post_type' => 'coursedate',
-                'posts_per_page' => $per_page,
-                'post__in' => $id,
-                'orderby' => 'post__in'
-            );
-        }
-
-        $wp_query = new \WP_Query($query_args);
-
-        $w_name =  !empty($cat) ?  get_term(floatval($cat), 'week')->name : '';
         ?>
 
         <div class="course-date-section">
-            <h3><?php echo esc_html($w_name); ?></h3>
-            <table class="table">
+            <form name="woosearchbox" method="GET" action="<?php echo esc_url(home_url('/')); ?>">
+            <?php
+            $args = array(
+                'show_option_all' => esc_html__('All Locations', 'theoriemakkie'),
+                'hierarchical' => 1,
+                'echo' => 1,
+                'value_field' => 'slug',
+                'taxonomy' => 'locations',
+                'name' => 'locations',
+                'class' => 'cate-dropdown hidden-xs',
+            );
+            wp_dropdown_categories($args);
+            ?>
+            <input type="hidden" value="product" name="post_type">
+            <button type="submit" title="<?php esc_attr_e('Filter', 'theoriemakkie'); ?>" class="search-btn-bg"><span><?php esc_attr_e('Filter','theoriemakkie');?></span></button>
+            </form>
                 <?php
-                if ($wp_query->have_posts()) {
-                    while ($wp_query->have_posts()) {
-                        $wp_query->the_post();
-                        ?>
-                        <tr>
-                            <td><?php echo theoriemakkie_course_meta('date_before'); ?><?php echo theoriemakkie_course_meta('date'); ?></td>
-                            <td>Amsterdam</td>
-                            <td><?php echo theoriemakkie_course_meta('free'); ?></td>
-                            <td>
-                                <a href="<?php echo theoriemakkie_course_meta('btn_link')['url']; ?>"><?php echo esc_html('Aanmelden') ?></a>
-                            </td>
-                        </tr>
-                    <?php }
-                } ?>
-            </table>
+            if ($categories) {
+                foreach ($categories as $category) {
+                    $wp_query = new \WP_Query(array(
+                        'post_type' => 'coursedate',
+                        'posts_per_page' => $settings['posts_per_page'],
+                        'tax_query' => array(
+                            array(
+                                'taxonomy' => 'week',
+                                'field' => 'term_id',
+                                'terms' => $category->term_id,
+                            )
+                        )
+                    ));
+                    ?>
+                    <div class="table-wrapper">
+                        <h3><?php echo esc_html($category->name); ?></h3>
+                        <table class="table">
+                            <?php
+                            if ($wp_query->have_posts()) {
+                                while ($wp_query->have_posts()) {
+                                    $wp_query->the_post();
+                                    ?>
+                                    <tr>
+                                        <td>
+                                            <svg width="14px" height="14px" viewBox="0 0 18 20" version="1.1"
+                                                 xmlns="http://www.w3.org/2000/svg">
+                                                <g id="Page-1" stroke="none" stroke-width="1" fill="none"
+                                                   fill-rule="evenodd">
+                                                    <g id="Group" fill="#000000" fill-rule="nonzero">
+                                                        <path d="M16,2 L15,2 L15,0 L13,0 L13,2 L5,2 L5,0 L3,0 L3,2 L2,2 C0.89,2 0,2.9 0,4 L0,18 C0,19.1045695 0.8954305,20 2,20 L16,20 C17.1045695,20 18,19.1045695 18,18 L18,4 C18,2.8954305 17.1045695,2 16,2 M16,18 L2,18 L2,8 L16,8 L16,18 M16,6 L2,6 L2,4 L16,4 L16,6 M9,11 L14,11 L14,16 L9,16 L9,11 Z"
+                                                              id="Shape"></path>
+                                                    </g>
+                                                </g>
+                                            </svg>
+                                            <span class="date_before"><?php echo theoriemakkie_course_meta('date_before'); ?></span> <?php echo theoriemakkie_course_meta('date'); ?>
+                                        </td>
+                                        <td>Amsterdam</td>
+                                        <td><?php echo theoriemakkie_course_meta('free'); ?></td>
+                                        <td class="table-button">
+                                            <a href="<?php var_dump(theoriemakkie_course_meta('btn_link')); ?>"><?php echo esc_html('Aanmelden') ?></a>
+                                        </td>
+                                    </tr>
+                                <?php }
+                            } ?>
+                        </table>
+                    </div>
+                <?php }
+            } ?>
         </div>
 
     <?php }
