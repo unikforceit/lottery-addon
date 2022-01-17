@@ -12,7 +12,11 @@ function theoriemakkie_check_odd_even($data){
 function theoriemakkie_course_meta($id, $default = null)
 {
     $options = get_post_meta(get_the_ID(), '_coursedatemeta', true);
-    return ( isset( $options[$id] ) ) ? $options[$id] : $default;
+    if (isset( $options[$id]['url'])) {
+        return (isset($options[$id]['url'])) ? $options[$id]['url'] : $default;
+    }else{
+        return (isset($options[$id])) ? $options[$id] : $default;
+    }
 }
 function theoriemakkie_client_ratings($count){
     $out = '';

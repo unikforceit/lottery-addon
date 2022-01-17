@@ -282,7 +282,7 @@ class theoriemakkie_coursedate extends Widget_Base
                                         <td>Amsterdam</td>
                                         <td><?php echo theoriemakkie_course_meta('free'); ?></td>
                                         <td class="table-button">
-                                            <a href="<?php var_dump(theoriemakkie_course_meta('btn_link')); ?>"><?php echo esc_html('Aanmelden') ?></a>
+                                            <a href="<?php echo theoriemakkie_course_meta('btn_link'); ?>"><?php echo esc_html('Aanmelden') ?></a>
                                         </td>
                                     </tr>
                                 <?php }
