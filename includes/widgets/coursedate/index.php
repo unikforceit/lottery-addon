@@ -213,57 +213,52 @@ class theoriemakkie_coursedate extends Widget_Base
 
     protected function render()
     {
-
         $settings = $this->get_settings_for_display();
-
         $tax_args = array(
             'taxonomy' => 'week',
             'number' => $settings['show_cat'],
             'include' => $settings['cat_query'],
-            'hide_empty' => false,
         );
         $categories = get_terms($tax_args);
+        $tax_args = array(
+            'taxonomy' => 'locations',
+            'number' => $settings['show_cat'],
+        );
+        $locations = get_terms($tax_args);
+        foreach ($locations as $locate){
+            $loco = $locate->term_id;
+        }
         ?>
-
         <div class="course-date-section">
-            <form name="woosearchbox" method="GET" action="<?php echo esc_url(home_url('/')); ?>">
+            <div class="locations_filter">
+                <?php theoriemakkie_select_dropdown() ?>
+            </div>
             <?php
-            $args = array(
-                'show_option_all' => esc_html__('All Locations', 'theoriemakkie'),
-                'hierarchical' => 1,
-                'echo' => 1,
-                'value_field' => 'slug',
-                'taxonomy' => 'locations',
-                'name' => 'locations',
-                'class' => 'cate-dropdown hidden-xs',
-            );
-            wp_dropdown_categories($args);
-            ?>
-            <input type="hidden" value="product" name="post_type">
-            <button type="submit" title="<?php esc_attr_e('Filter', 'theoriemakkie'); ?>" class="search-btn-bg"><span><?php esc_attr_e('Filter','theoriemakkie');?></span></button>
-            </form>
-                <?php
             if ($categories) {
                 foreach ($categories as $category) {
-                    $wp_query = new \WP_Query(array(
+                    $wp_query = array(
                         'post_type' => 'coursedate',
                         'posts_per_page' => $settings['posts_per_page'],
                         'tax_query' => array(
+                         'relation' => 'AND',
                             array(
                                 'taxonomy' => 'week',
                                 'field' => 'term_id',
                                 'terms' => $category->term_id,
-                            )
+                            ),
                         )
-                    ));
+                    );
                     ?>
                     <div class="table-wrapper">
                         <h3><?php echo esc_html($category->name); ?></h3>
                         <table class="table">
+                            <tbody id="response">
                             <?php
+                            $wp_query = new \WP_Query($wp_query);
                             if ($wp_query->have_posts()) {
                                 while ($wp_query->have_posts()) {
                                     $wp_query->the_post();
+                                    $location = get_the_terms(get_the_ID(), 'locations');
                                     ?>
                                     <tr>
                                         <td>
@@ -279,7 +274,7 @@ class theoriemakkie_coursedate extends Widget_Base
                                             </svg>
                                             <span class="date_before"><?php echo theoriemakkie_course_meta('date_before'); ?></span> <?php echo theoriemakkie_course_meta('date'); ?>
                                         </td>
-                                        <td>Amsterdam</td>
+                                        <td><?php foreach ($location as $name) { echo esc_html($name->name); } ?></td>
                                         <td><?php echo theoriemakkie_course_meta('free'); ?></td>
                                         <td class="table-button">
                                             <a href="<?php echo theoriemakkie_course_meta('btn_link'); ?>"><?php echo esc_html('Aanmelden') ?></a>
@@ -287,6 +282,8 @@ class theoriemakkie_coursedate extends Widget_Base
                                     </tr>
                                 <?php }
                             } ?>
+                            </tbody>
+
                         </table>
                     </div>
                 <?php }

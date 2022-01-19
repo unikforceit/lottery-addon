@@ -27,6 +27,7 @@ function theoriemakkie_addon() {
     // Load plugin file
     require_once( __DIR__ . '/codestar-framework/codestar-framework.php' );
     require_once( __DIR__ . '/includes/index.php' );
+    require_once( __DIR__ . '/includes/ajax-load/index.php' );
 
     // Run the plugin
     \Theoriemakkie_Addon\TheoriemakkiePlugin::instance();
