@@ -21,7 +21,7 @@ function theoriemakkie_enqueue_ajax() {
         ),
     );
 }
-add_action( 'wp_enqueue_scripts', 'theoriemakkie_enqueue_ajax' );
+//add_action( 'wp_enqueue_scripts', 'theoriemakkie_enqueue_ajax' );
 function theoriemakkie_filter_locations(){
     $location = $_POST['location'];
     $wp_query = array(
@@ -63,5 +63,5 @@ function theoriemakkie_filter_locations(){
     }
     wp_die();
 }
-add_action('wp_ajax_theoriemakkie_filter', 'theoriemakkie_filter_locations');
-add_action('wp_ajax_nopriv_theoriemakkie_filter', 'theoriemakkie_filter_locations');
+//add_action('wp_ajax_theoriemakkie_filter', 'theoriemakkie_filter_locations');
+//add_action('wp_ajax_nopriv_theoriemakkie_filter', 'theoriemakkie_filter_locations');

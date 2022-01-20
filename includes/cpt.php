@@ -32,7 +32,7 @@
                 'menu_position' => 5,
                 'menu_icon' => 'dashicons-megaphone',
                 'taxonomies' => array('coursedate_cat'),
-                'supports' => array('title', 'editor', 'thumbnail', 'excerpt','elementor'),
+                'supports' => array('title'),
                 'has_archive' => true,
             );
             register_post_type('coursedate', $args);

@@ -33,9 +33,14 @@ CSF::createSection( $prefix_page_opts, array(
           'title' => 'Free',
       ),
       array(
-          'id'    => 'btn_link',
-          'type'  => 'link',
-          'title' => 'Button Link',
+          'id'    => 'locatie',
+          'type'  => 'text',
+          'title' => 'Locatie Value',
+      ),
+      array(
+          'id'    => 'detum',
+          'type'  => 'text',
+          'title' => 'Detum Value',
       ),
   )
 ) );

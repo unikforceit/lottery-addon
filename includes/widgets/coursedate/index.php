@@ -220,18 +220,10 @@ class theoriemakkie_coursedate extends Widget_Base
             'include' => $settings['cat_query'],
         );
         $categories = get_terms($tax_args);
-        $tax_args = array(
-            'taxonomy' => 'locations',
-            'number' => $settings['show_cat'],
-        );
-        $locations = get_terms($tax_args);
-        foreach ($locations as $locate){
-            $loco = $locate->term_id;
-        }
         ?>
         <div class="course-date-section">
             <div class="locations_filter">
-                <?php theoriemakkie_select_dropdown() ?>
+                <?php //theoriemakkie_select_dropdown() ?>
             </div>
             <?php
             if ($categories) {
@@ -240,7 +232,6 @@ class theoriemakkie_coursedate extends Widget_Base
                         'post_type' => 'coursedate',
                         'posts_per_page' => $settings['posts_per_page'],
                         'tax_query' => array(
-                         'relation' => 'AND',
                             array(
                                 'taxonomy' => 'week',
                                 'field' => 'term_id',
@@ -277,11 +268,12 @@ class theoriemakkie_coursedate extends Widget_Base
                                         <td><?php foreach ($location as $name) { echo esc_html($name->name); } ?></td>
                                         <td><?php echo theoriemakkie_course_meta('free'); ?></td>
                                         <td class="table-button">
-                                            <a href="<?php echo theoriemakkie_course_meta('btn_link'); ?>"><?php echo esc_html('Aanmelden') ?></a>
+                                            <a href="https://www.theoriemakkie.nl/inschrijven/?locatie=<?php echo theoriemakkie_course_meta('locatie'); ?>&detum=<?php echo theoriemakkie_course_meta('detum'); ?>"><?php echo esc_html('Aanmelden') ?></a>
                                         </td>
                                     </tr>
                                 <?php }
-                            } ?>
+                            }
+                            ?>
                             </tbody>
 
                         </table>
