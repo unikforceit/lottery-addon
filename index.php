@@ -1,6 +1,6 @@
 <?php
 /**
- * Plugin Name:       LotteryAddons Addons
+ * Plugin Name:       Lottery Addons
  * Plugin URI:        https://unikforce.com
  * Description:       Simple elementor addons
  * Version:           1.0.0
@@ -26,6 +26,7 @@ function lottery_addons() {
 
     // Load plugin file
     require_once( __DIR__ . '/includes/index.php' );
+    require_once( __DIR__ . '/includes/global.php' );
     // Run the plugin
     \LotteryAddons\LotteryAddonsPlugin::instance();
 
