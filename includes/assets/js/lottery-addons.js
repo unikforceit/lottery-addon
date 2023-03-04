@@ -1,7 +1,7 @@
 (function ($) {
 "use strict";
 
-    var TheoriemakkieGlobal = function ($scope, $) {
+    var LotteryAddonsGlobal = function ($scope, $) {
 
         // Js Start
         $('[data-background]').each(function() {
@@ -23,12 +23,12 @@
 
     $(window).on('elementor/frontend/init', function () {
         if (elementorFrontend.isEditMode()) {
-            elementorFrontend.hooks.addAction('frontend/element_ready/global', TheoriemakkieGlobal);
-            //elementorFrontend.hooks.addAction('frontend/element_ready/theoriemakkie_ad_block.default', adblocklist);
+            elementorFrontend.hooks.addAction('frontend/element_ready/global', LotteryAddonsGlobal);
+            //elementorFrontend.hooks.addAction('frontend/element_ready/lotteryaddons_ad_block.default', adblocklist);
         }
         else {
-            elementorFrontend.hooks.addAction('frontend/element_ready/global', TheoriemakkieGlobal);
-            //elementorFrontend.hooks.addAction('frontend/element_ready/theoriemakkie_ad_block.default', adblocklist);
+            elementorFrontend.hooks.addAction('frontend/element_ready/global', LotteryAddonsGlobal);
+            //elementorFrontend.hooks.addAction('frontend/element_ready/lotteryaddons_ad_block.default', adblocklist);
         }
     });
 console.log('addon js loaded');

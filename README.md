@@ -1,2 +1,3 @@
-# theoriemakkie
-# theoriemakkie-addons
+# lotteryaddons
+# lotteryaddons-addons
+# lottery-addons
