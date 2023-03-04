@@ -3,22 +3,22 @@
 namespace Elementor;
 if (!defined('ABSPATH')) exit; // Exit if accessed directly
 
-class theoriemakkie_coursedate extends Widget_Base
+class lotteryaddons_coursedate extends Widget_Base
 {
 
     public function get_name()
     {
-        return 'theoriemakkie-coursedate';
+        return 'lotteryaddons-coursedate';
     }
 
     public function get_title()
     {
-        return __('Course Date', 'theoriemakkie');
+        return __('Course Date', 'lotteryaddons');
     }
 
     public function get_categories()
     {
-        return ['theoriemakkie-addons'];
+        return ['lotteryaddons-addons'];
     }
 
     public function get_icon()
@@ -32,34 +32,16 @@ class theoriemakkie_coursedate extends Widget_Base
         $this->start_controls_section(
             'content_section',
             [
-                'label' => __('Course Date', 'theoriemakkie'),
+                'label' => __('Course Date', 'lotteryaddons'),
                 'tab' => \Elementor\Controls_Manager::TAB_CONTENT,
-            ]
-        );
-        $this->add_control(
-            'cat_query',
-            [
-                'label' => __('Week', 'theoriemakkie'),
-                'type' => \Elementor\Controls_Manager::SELECT2,
-                'options' => theoriemakkie_cats_arr('week'),
-                'multiple' => true,
-                'label_block' => true,
             ]
         );
         $this->add_control(
             'show_cat',
             [
-                'label' => esc_html__('Show Category', 'theoriemakkie'),
+                'label' => esc_html__('Show Category', 'lotteryaddons'),
                 'type' => \Elementor\Controls_Manager::NUMBER,
-                'default' => esc_html__('5', 'theoriemakkie'),
-            ]
-        );
-        $this->add_control(
-            'posts_per_page',
-            [
-                'label' => __('Posts Per Page', 'theoriemakkie'),
-                'type' => \Elementor\Controls_Manager::NUMBER,
-                'default' => 6,
+                'default' => esc_html__('5', 'lotteryaddons'),
             ]
         );
         $this->end_controls_section();
@@ -67,14 +49,14 @@ class theoriemakkie_coursedate extends Widget_Base
         $this->start_controls_section(
             'content_sty',
             [
-                'label' => __('Style', 'theoriemakkie'),
+                'label' => __('Style', 'lotteryaddons'),
                 'tab' => \Elementor\Controls_Manager::TAB_STYLE,
             ]
         );
         $this->add_control(
             'post_title_color',
             [
-                'label' => __('Title Color', 'theoriemakkie'),
+                'label' => __('Title Color', 'lotteryaddons'),
                 'type' => \Elementor\Controls_Manager::COLOR,
                 'selectors' => [
                     '{{WRAPPER}} .service .item h4' => 'color: {{VALUE}}',
@@ -84,7 +66,7 @@ class theoriemakkie_coursedate extends Widget_Base
         $this->add_control(
             'post_titleh_color',
             [
-                'label' => __('Title Hover Color', 'theoriemakkie'),
+                'label' => __('Title Hover Color', 'lotteryaddons'),
                 'type' => \Elementor\Controls_Manager::COLOR,
                 'selectors' => [
                     '{{WRAPPER}} .service .item h4:hover' => 'color: {{VALUE}}',
@@ -95,14 +77,14 @@ class theoriemakkie_coursedate extends Widget_Base
             \Elementor\Group_Control_Typography::get_type(),
             [
                 'name' => 'ttih',
-                'label' => __('Title Typography', 'theoriemakkie'),
+                'label' => __('Title Typography', 'lotteryaddons'),
                 'selector' => '{{WRAPPER}} .service .item h4',
             ]
         );
         $this->add_control(
             'post_in_color',
             [
-                'label' => __('Info Color', 'theoriemakkie'),
+                'label' => __('Info Color', 'lotteryaddons'),
                 'type' => \Elementor\Controls_Manager::COLOR,
                 'selectors' => [
                     '{{WRAPPER}} .service .item p' => 'color: {{VALUE}}',
@@ -113,14 +95,14 @@ class theoriemakkie_coursedate extends Widget_Base
             \Elementor\Group_Control_Typography::get_type(),
             [
                 'name' => 'ttihii',
-                'label' => __('Info Typography', 'theoriemakkie'),
+                'label' => __('Info Typography', 'lotteryaddons'),
                 'selector' => '{{WRAPPER}} .service .item p',
             ]
         );
         $this->add_control(
             'icon_c',
             [
-                'label' => __('Icon Color', 'theoriemakkie'),
+                'label' => __('Icon Color', 'lotteryaddons'),
                 'type' => \Elementor\Controls_Manager::COLOR,
                 'selectors' => [
                     '{{WRAPPER}} .service .item .hexagon i' => 'color: {{VALUE}}',
@@ -130,7 +112,7 @@ class theoriemakkie_coursedate extends Widget_Base
         $this->add_control(
             'icon_cl',
             [
-                'label' => __('Icon Hover', 'theoriemakkie'),
+                'label' => __('Icon Hover', 'lotteryaddons'),
                 'type' => \Elementor\Controls_Manager::COLOR,
                 'selectors' => [
                     '{{WRAPPER}} .service .item:hover .hexagon i' => 'color: {{VALUE}}',
@@ -140,7 +122,7 @@ class theoriemakkie_coursedate extends Widget_Base
         $this->add_control(
             'icon_bg',
             [
-                'label' => __('Icon Hover Background', 'theoriemakkie'),
+                'label' => __('Icon Hover Background', 'lotteryaddons'),
                 'type' => \Elementor\Controls_Manager::COLOR,
                 'selectors' => [
                     '{{WRAPPER}} .service .item:hover .hexagon:before, 
@@ -152,14 +134,14 @@ class theoriemakkie_coursedate extends Widget_Base
             \Elementor\Group_Control_Typography::get_type(),
             [
                 'name' => 'btnt',
-                'label' => __('Button Typography', 'theoriemakkie'),
+                'label' => __('Button Typography', 'lotteryaddons'),
                 'selector' => '{{WRAPPER}} .service .item .thm-btn',
             ]
         );
         $this->add_control(
             'btn_c',
             [
-                'label' => __('Button Color', 'theoriemakkie'),
+                'label' => __('Button Color', 'lotteryaddons'),
                 'type' => \Elementor\Controls_Manager::COLOR,
                 'selectors' => [
                     '{{WRAPPER}} .service .item .thm-btn' => 'color: {{VALUE}}',
@@ -169,7 +151,7 @@ class theoriemakkie_coursedate extends Widget_Base
         $this->add_control(
             'btn_bg',
             [
-                'label' => __('Button Background', 'theoriemakkie'),
+                'label' => __('Button Background', 'lotteryaddons'),
                 'type' => \Elementor\Controls_Manager::COLOR,
                 'selectors' => [
                     '{{WRAPPER}} .service .item .thm-btn' => 'background: {{VALUE}}',
@@ -179,7 +161,7 @@ class theoriemakkie_coursedate extends Widget_Base
         $this->add_control(
             'btn_hc',
             [
-                'label' => __('Button Hover Color', 'theoriemakkie'),
+                'label' => __('Button Hover Color', 'lotteryaddons'),
                 'type' => \Elementor\Controls_Manager::COLOR,
                 'selectors' => [
                     '{{WRAPPER}} .service .item:hover .thm-btn' => 'color: {{VALUE}}',
@@ -189,7 +171,7 @@ class theoriemakkie_coursedate extends Widget_Base
         $this->add_control(
             'btn_bgh',
             [
-                'label' => __('Button Hover Background', 'theoriemakkie'),
+                'label' => __('Button Hover Background', 'lotteryaddons'),
                 'type' => \Elementor\Controls_Manager::COLOR,
                 'selectors' => [
                     '{{WRAPPER}} .service .item:hover .thm-btn' => 'background: {{VALUE}}',
@@ -199,7 +181,7 @@ class theoriemakkie_coursedate extends Widget_Base
         $this->add_responsive_control(
             'content_margin',
             [
-                'label' => __('Row Gap', 'theoriemakkie'),
+                'label' => __('Row Gap', 'lotteryaddons'),
                 'type' => Controls_Manager::DIMENSIONS,
                 'size_units' => ['px', '%', 'em'],
                 'selectors' => [
@@ -214,75 +196,8 @@ class theoriemakkie_coursedate extends Widget_Base
     protected function render()
     {
         $settings = $this->get_settings_for_display();
-        $tax_args = array(
-            'taxonomy' => 'week',
-            'number' => $settings['show_cat'],
-            'include' => $settings['cat_query'],
-        );
-        $categories = get_terms($tax_args);
-        ?>
-        <div class="course-date-section">
-            <div class="locations_filter">
-                <?php //theoriemakkie_select_dropdown() ?>
-            </div>
-            <?php
-            if ($categories) {
-                foreach ($categories as $category) {
-                    $wp_query = array(
-                        'post_type' => 'coursedate',
-                        'posts_per_page' => $settings['posts_per_page'],
-                        'tax_query' => array(
-                            array(
-                                'taxonomy' => 'week',
-                                'field' => 'term_id',
-                                'terms' => $category->term_id,
-                            ),
-                        )
-                    );
-                    ?>
-                    <div class="table-wrapper">
-                        <h3><?php echo esc_html($category->name); ?></h3>
-                        <table class="table">
-                            <tbody id="response">
-                            <?php
-                            $wp_query = new \WP_Query($wp_query);
-                            if ($wp_query->have_posts()) {
-                                while ($wp_query->have_posts()) {
-                                    $wp_query->the_post();
-                                    $location = get_the_terms(get_the_ID(), 'locations');
-                                    ?>
-                                    <tr>
-                                        <td>
-                                            <svg width="14px" height="14px" viewBox="0 0 18 20" version="1.1"
-                                                 xmlns="http://www.w3.org/2000/svg">
-                                                <g id="Page-1" stroke="none" stroke-width="1" fill="none"
-                                                   fill-rule="evenodd">
-                                                    <g id="Group" fill="#000000" fill-rule="nonzero">
-                                                        <path d="M16,2 L15,2 L15,0 L13,0 L13,2 L5,2 L5,0 L3,0 L3,2 L2,2 C0.89,2 0,2.9 0,4 L0,18 C0,19.1045695 0.8954305,20 2,20 L16,20 C17.1045695,20 18,19.1045695 18,18 L18,4 C18,2.8954305 17.1045695,2 16,2 M16,18 L2,18 L2,8 L16,8 L16,18 M16,6 L2,6 L2,4 L16,4 L16,6 M9,11 L14,11 L14,16 L9,16 L9,11 Z"
-                                                              id="Shape"></path>
-                                                    </g>
-                                                </g>
-                                            </svg>
-                                            <span class="date_before"><?php echo theoriemakkie_course_meta('date_before'); ?></span> <?php echo theoriemakkie_course_meta('date'); ?>
-                                        </td>
-                                        <td><?php foreach ($location as $name) { echo esc_html($name->name); } ?></td>
-                                        <td><?php echo theoriemakkie_course_meta('free'); ?></td>
-                                        <td class="table-button">
-                                            <a href="https://www.theoriemakkie.nl/inschrijven/?locatie=<?php echo theoriemakkie_course_meta('locatie'); ?>&detum=<?php echo theoriemakkie_course_meta('detum'); ?>"><?php echo esc_html('Aanmelden') ?></a>
-                                        </td>
-                                    </tr>
-                                <?php }
-                            }
-                            ?>
-                            </tbody>
 
-                        </table>
-                    </div>
-                <?php }
-            } ?>
-        </div>
-
-    <?php }
+    }
 
 
     protected function content_template()
@@ -295,5 +210,5 @@ class theoriemakkie_coursedate extends Widget_Base
 
 }
 
-Plugin::instance()->widgets_manager->register(new theoriemakkie_coursedate());
+Plugin::instance()->widgets_manager->register(new lotteryaddons_coursedate());
 ?>

@@ -1,5 +1,5 @@
 <?php
-namespace Theoriemakkie_Addon;
+namespace LotteryAddons;
 
 if ( ! defined( 'ABSPATH' ) ) {
     exit; // Exit if accessed directly.
@@ -12,7 +12,7 @@ if ( ! defined( 'ABSPATH' ) ) {
  *
  * @since 1.0.0
  */
-final class TheoriemakkiePlugin {
+final class LotteryAddonsPlugin {
 
     /**
      * Addon Version
@@ -44,7 +44,7 @@ final class TheoriemakkiePlugin {
      * @since 1.0.0
      * @access private
      * @static
-     * @var \Theoriemakkie_Addon\TheoriemakkiePlugin The single instance of the class.
+     * @var \LotteryAddons\LotteryAddonsPlugin The single instance of the class.
      */
     private static $_instance = null;
 
@@ -56,7 +56,7 @@ final class TheoriemakkiePlugin {
      * @since 1.0.0
      * @access public
      * @static
-     * @return \Theoriemakkie_Addon\TheoriemakkiePlugin An instance of the class.
+     * @return \LotteryAddons\LotteryAddonsPlugin An instance of the class.
      */
     public static function instance() {
 
@@ -125,18 +125,18 @@ final class TheoriemakkiePlugin {
     private function setup_constants() {
 
         // Plugin Folder Path
-        if (!defined('Theoriemakkie_PLUGIN_DIR')) {
-            define('Theoriemakkie_PLUGIN_DIR', plugin_dir_path(__FILE__));
+        if (!defined('LotteryAddons_PLUGIN_DIR')) {
+            define('LotteryAddons_PLUGIN_DIR', plugin_dir_path(__FILE__));
         }
 
         // Plugin Folder URL
-        if (!defined('Theoriemakkie_PLUGIN_URL')) {
-            define('Theoriemakkie_PLUGIN_URL', plugin_dir_url(__FILE__));
+        if (!defined('LotteryAddons_PLUGIN_URL')) {
+            define('LotteryAddons_PLUGIN_URL', plugin_dir_url(__FILE__));
         }
 
         // Plugin Folder Path
-        if (!defined('Theoriemakkie_ADDONS_DIR')) {
-            define('Theoriemakkie_ADDONS_DIR', plugin_dir_path(__FILE__) . 'widgets/');
+        if (!defined('LotteryAddons_ADDONS_DIR')) {
+            define('LotteryAddons_ADDONS_DIR', plugin_dir_path(__FILE__) . 'widgets/');
         }
 
     }
@@ -155,9 +155,9 @@ final class TheoriemakkiePlugin {
 
         $message = sprintf(
         /* translators: 1: Plugin name 2: Elementor */
-            esc_html__( '"%1$s" requires "%2$s" to be installed and activated.', 'theoriemakkie' ),
-            '<strong>' . esc_html__( 'Theoriemakkie Addons', 'theoriemakkie' ) . '</strong>',
-            '<strong>' . esc_html__( 'Elementor', 'theoriemakkie' ) . '</strong>'
+            esc_html__( '"%1$s" requires "%2$s" to be installed and activated.', 'lotteryaddons' ),
+            '<strong>' . esc_html__( 'LotteryAddons Addons', 'lotteryaddons' ) . '</strong>',
+            '<strong>' . esc_html__( 'Elementor', 'lotteryaddons' ) . '</strong>'
         );
 
         printf( '<div class="notice notice-warning is-dismissible"><p>%1$s</p></div>', $message );
@@ -178,9 +178,9 @@ final class TheoriemakkiePlugin {
 
         $message = sprintf(
         /* translators: 1: Plugin name 2: Elementor 3: Required Elementor version */
-            esc_html__( '"%1$s" requires "%2$s" version %3$s or greater.', 'theoriemakkie' ),
-            '<strong>' . esc_html__( 'Theoriemakkie Addons', 'theoriemakkie' ) . '</strong>',
-            '<strong>' . esc_html__( 'Elementor', 'theoriemakkie' ) . '</strong>',
+            esc_html__( '"%1$s" requires "%2$s" version %3$s or greater.', 'lotteryaddons' ),
+            '<strong>' . esc_html__( 'LotteryAddons Addons', 'lotteryaddons' ) . '</strong>',
+            '<strong>' . esc_html__( 'Elementor', 'lotteryaddons' ) . '</strong>',
             self::MINIMUM_ELEMENTOR_VERSION
         );
 
@@ -202,9 +202,9 @@ final class TheoriemakkiePlugin {
 
         $message = sprintf(
         /* translators: 1: Plugin name 2: PHP 3: Required PHP version */
-            esc_html__( '"%1$s" requires "%2$s" version %3$s or greater.', 'theoriemakkie' ),
-            '<strong>' . esc_html__( 'Theoriemakkie Addons', 'theoriemakkie' ) . '</strong>',
-            '<strong>' . esc_html__( 'PHP', 'theoriemakkie' ) . '</strong>',
+            esc_html__( '"%1$s" requires "%2$s" version %3$s or greater.', 'lotteryaddons' ),
+            '<strong>' . esc_html__( 'LotteryAddons Addons', 'lotteryaddons' ) . '</strong>',
+            '<strong>' . esc_html__( 'PHP', 'lotteryaddons' ) . '</strong>',
             self::MINIMUM_PHP_VERSION
         );
 
@@ -217,11 +217,7 @@ final class TheoriemakkiePlugin {
      *
      */
     public function includes() {
-        require_once Theoriemakkie_PLUGIN_DIR . '/helper-functions.php';
-        require_once Theoriemakkie_PLUGIN_DIR . '/cpt.php';
-        if (class_exists('CSF')) {
-            require_once Theoriemakkie_PLUGIN_DIR . '/coursedatemeta.php';
-        }
+        require_once LotteryAddons_PLUGIN_DIR . '/helper-functions.php';
     }
 
     /**
@@ -246,9 +242,9 @@ final class TheoriemakkiePlugin {
 
     public function add_elementor_category() {
         \Elementor\Plugin::instance()->elements_manager->add_category(
-            'theoriemakkie-addons',
+            'lotteryaddons-addons',
             array(
-                'title' => __('Theoriemakkie Addons', 'theoriemakkie'),
+                'title' => __('Lottery Addons', 'lotteryaddons'),
                 'icon' => 'fa fa-plug',
             ),
             1);
@@ -266,14 +262,14 @@ final class TheoriemakkiePlugin {
     public function register_widgets( $widgets_manager ) {
 
         $widgets[] = '';
-        foreach( glob( Theoriemakkie_PLUG_DIR. 'includes/widgets/*' ) as $file ) {
+        foreach( glob( LotteryAddons_PLUG_DIR. 'includes/widgets/*' ) as $file ) {
             $widgets[] = substr($file, strrpos($file, '/') + 1);
         }
         if (is_array($widgets)){
             $widgets = array_filter($widgets);
             foreach ($widgets as $key => $value){
                 if (!empty($value)) {
-                    require_once Theoriemakkie_ADDONS_DIR . ''.$value.'/index.php';
+                    require_once LotteryAddons_ADDONS_DIR . ''.$value.'/index.php';
                 }
 
             }
@@ -287,21 +283,21 @@ final class TheoriemakkiePlugin {
      *
      */
     public function register_frontend_scripts() {
-        foreach( glob( Theoriemakkie_PLUG_DIR. 'includes/assets/js/*.js' ) as $file ) {
+        foreach( glob( LotteryAddons_PLUG_DIR. 'includes/assets/js/*.js' ) as $file ) {
             $filename = substr($file, strrpos($file, '/') + 1);
-            wp_enqueue_script( $filename, Theoriemakkie_PLUGIN_URL . 'assets/js/'.$filename, array('jquery'), '1.0.0', true);
+            wp_enqueue_script( $filename, LotteryAddons_PLUGIN_URL . 'assets/js/'.$filename, array('jquery'), '1.0.0', true);
         }
     }
 
     public function register_elementor_editor_css() {
-        wp_enqueue_style( 'elementor-custom-editor', Theoriemakkie_PLUGIN_URL . 'assets/css/elementor/elementor-custom-editor.css');
+        wp_enqueue_style( 'elementor-custom-editor', LotteryAddons_PLUGIN_URL . 'assets/css/elementor/elementor-custom-editor.css');
     }
 
     public function register_frontend_styles() {
 
-        foreach( glob( Theoriemakkie_PLUG_DIR. 'includes/assets/css/*.css' ) as $file ) {
+        foreach( glob( LotteryAddons_PLUG_DIR. 'includes/assets/css/*.css' ) as $file ) {
             $filename = substr($file, strrpos($file, '/') + 1);
-            wp_enqueue_style( $filename, Theoriemakkie_PLUGIN_URL . 'assets/css/'.$filename);
+            wp_enqueue_style( $filename, LotteryAddons_PLUGIN_URL . 'assets/css/'.$filename);
         }
     }
 
