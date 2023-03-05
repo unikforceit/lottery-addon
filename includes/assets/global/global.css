@@ -1,0 +1,175 @@
+@charset "UTF-8";
+body {
+  background-color: #000 !important;
+}
+
+.woocommerce ul.products li.product.desktop-align-left, .woocommerce-page ul.products li.product.desktop-align-left {
+  background-color: #171717;
+  text-align: center;
+  border-radius: 0 !important;
+  overflow: hidden;
+  border: 1px solid #444 !important;
+  padding: 7px 7px 12px !important;
+  box-shadow: 0 0.5rem 1rem rgba(23, 23, 23, 0.15);
+}
+
+p.price.lty-lottery-status {
+  margin: 5px 0 0 !important;
+  position: relative;
+  font-size: 15px !important;
+  text-transform: uppercase !important;
+  background-color: #4d4d4d !important;
+  font-weight: 900 !important;
+  color: #fff !important;
+  width: auto;
+  border-radius: 5px;
+  line-height: 1 !important;
+  padding: 6px 15px !important;
+  z-index: 50;
+  font-family: "Urbanist", sans-serif;
+  letter-spacing: 0.1rem;
+}
+
+.lty-shop-timer-wrapper {
+  background: transparent;
+}
+
+.lty-lottery-countdown-timer #lty_lottery_days, .lty-lottery-countdown-timer #lty_lottery_hours, .lty-lottery-countdown-timer #lty_lottery_minutes, .lty-lottery-countdown-timer #lty_lottery_seconds {
+  color: #ffffff !important;
+  font-size: 26px;
+}
+
+.lty-shop-timer-section {
+  color: #fcb800;
+}
+
+.lty-shop-timer-wrapper .lty-shop-timer-container {
+  width: 60%;
+  margin: 0 auto;
+  padding: 20px 0;
+  display: block;
+}
+
+.lty-shop-timer-section:before {
+  content: none;
+}
+
+.lty-shop-timer-wrapper {
+  position: relative;
+  border-bottom: 1px solid #444;
+}
+
+.lty-shop-timer-wrapper::before {
+  content: "‎ ";
+  position: absolute;
+  left: 25px;
+  top: 40%;
+  background-image: url(http://lottery.test/wp-content/uploads/2023/03/timer-left.png);
+  width: 100%;
+  background-repeat: no-repeat;
+  background-size: 43px 18px;
+}
+
+.lty-shop-timer-wrapper::after {
+  content: "‎ ";
+  position: absolute;
+  left: 77%;
+  top: 40%;
+  background-image: url(http://lottery.test/wp-content/uploads/2023/03/timer-left-Copy.png);
+  width: 100%;
+  background-repeat: no-repeat;
+  background-size: 43px 18px !important;
+}
+
+.woocommerce ul.products li.product .ast-woo-product-category, .woocommerce-page ul.products li.product .ast-woo-product-category {
+  display: none;
+}
+
+.woocommerce ul.products li.product .woocommerce-loop-product__title, .woocommerce-page ul.products li.product .woocommerce-loop-product__title {
+  color: #fff;
+  font-size: 24px;
+}
+
+.woocommerce ul.products li.product .price, .woocommerce-page ul.products li.product .price {
+  color: #289894;
+  font-size: 24px;
+}
+
+.woocommerce ul.products li.product .button, .woocommerce-page ul.products li.product .button {
+  font-weight: 700;
+  width: 100%;
+  background-color: #444;
+  border: 2px solid #444;
+  padding: 10px 75px 10px 20px;
+  border-radius: 30px;
+  text-align: left;
+  font-size: 14px;
+  transition: all 300ms ease-in-out;
+  text-transform: uppercase;
+  letter-spacing: 0.1rem;
+}
+
+.woocommerce ul.products li.product .button:hover, .woocommerce-page ul.products li.product .button:hover {
+  filter: brightness(110%);
+  border-color: #fcb800;
+  background-color: #fcb800;
+  color: #111;
+}
+
+a.button.wp-element-button.product_type_lottery.add_to_cart_button:after {
+  content: "";
+  position: absolute;
+  right: 15px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 11px;
+  height: 20px;
+  background-image: url(http://lottery.test/wp-content/uploads/2023/03/icon-arrow-button.svg);
+  background-size: 11px 20px;
+  background-repeat: no-repeat;
+  transition: 0.3s;
+}
+
+.woocommerce ul.products li.product .star-rating, .woocommerce-page ul.products li.product .star-rating {
+  display: none;
+}
+
+.lty-lottery-progress-bar-loop .lty-progress-remaining-count {
+  display: none;
+}
+
+.quantity-slider-wrapper {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 20px;
+}
+
+.quantity-slider-wrapper label {
+  margin-bottom: 5px;
+}
+
+.quantity-slider {
+  -webkit-appearance: none;
+  width: 100%;
+  height: 5px;
+  border-radius: 5px;
+  background-color: #ccc;
+  outline: none;
+  margin-bottom: 10px;
+}
+
+.quantity-slider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background-color: #4CAF50;
+  cursor: pointer;
+}
+
+.quantity-value {
+  text-align: center;
+}
+
+/*# sourceMappingURL=global.css.map */
