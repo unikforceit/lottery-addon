@@ -40,11 +40,20 @@ function woocommerce_add_to_cart_button_text_archives() {
     return __( 'Enter Now', 'woocommerce' );
 }
 function add_quantity_slider() {
-    echo '<div class="quantity-slider-wrapper">';
-    echo '<label for="quantity-slider">Quantity:</label>';
-    echo '<input type="range" name="quantity" min="1" max="10" value="1" class="quantity-slider" id="quantity-slider">';
-    echo '<span class="quantity-value">1</span>';
-    echo '</div>';
+    global $product;
+
+    $min_value = apply_filters( 'woocommerce_quantity_input_min', $product->get_min_purchase_quantity(), $product );
+    $max_value = apply_filters( 'woocommerce_quantity_input_max', $product->get_max_purchase_quantity(), $product );
+    $step      = apply_filters( 'woocommerce_quantity_input_step', 1, $product );
+    $value     = wc_stock_amount( $product->get_min_purchase_quantity() );
+
+    ?>
+    <div class="quantity-range-slider">
+        <label for="quantity"><?php _e( 'Quantity', 'woocommerce' ); ?></label>
+        <input type="range" id="quantity" class="" name="quantity" min="<?php echo esc_attr( $min_value ); ?>" max="<?php echo esc_attr( $max_value ); ?>" step="<?php echo esc_attr( $step ); ?>" value="<?php echo esc_attr( $value ); ?>">
+        <div class="quantity_slide"><?php echo esc_html( $value ); ?></div>
+    </div>
+    <?php
 }
 add_action( 'woocommerce_before_add_to_cart_button', 'add_quantity_slider' );
 function add_hidden_quantity_field() {

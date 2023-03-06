@@ -126,36 +126,43 @@ a.button.wp-element-button.product_type_lottery.add_to_cart_button:after {
   display: none;
 }
 
-.quantity-slider-wrapper {
+.quantity-range-slider {
   display: flex;
-  flex-direction: column;
-  margin-bottom: 20px;
+  align-items: center;
 }
 
-.quantity-slider-wrapper label {
-  margin-bottom: 5px;
+.quantity-range-slider label {
+  margin-right: 10px;
 }
 
-.quantity-slider {
+.quantity-range-slider input[type="range"] {
   -webkit-appearance: none;
   width: 100%;
-  height: 5px;
+  height: 10px;
+  background-color: #ddd;
   border-radius: 5px;
-  background-color: #ccc;
   outline: none;
-  margin-bottom: 10px;
 }
 
-.quantity-slider::-webkit-slider-thumb {
+.quantity-range-slider input[type="range"]::-webkit-slider-thumb {
   -webkit-appearance: none;
-  appearance: none;
   width: 20px;
   height: 20px;
+  background-color: #007cba;
   border-radius: 50%;
-  background-color: #4CAF50;
   cursor: pointer;
 }
 
-.quantity-value {
-  text-align: center;
+.quantity-range-slider input[type="range"]::-moz-range-thumb {
+  width: 20px;
+  height: 20px;
+  background-color: #007cba;
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+.quantity-range-slider .quantity_slide {
+  margin-left: 10px;
+  font-size: 18px;
+  font-weight: bold;
 }
