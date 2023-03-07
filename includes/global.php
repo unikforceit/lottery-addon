@@ -14,6 +14,8 @@ add_action('wp_enqueue_scripts', 'lottery_addons_enqueue_scripts');
 
 remove_action('lty_lottery_single_product_content', 'LTY_Lottery_Single_Product_Templates::render_date_ranges_template', 10);
 add_action('lty_after_add_to_cart_form', 'LTY_Lottery_Single_Product_Templates::render_date_ranges_template', 10);
+remove_action('lty_lottery_single_product_content', 'LTY_Lottery_Single_Product_Templates::render_progress_bar_template', 30);
+add_action('lty_after_add_to_cart_form', 'LTY_Lottery_Single_Product_Templates::render_progress_bar_template', 9);
 
 
 //remove woocommere breadcrumb
@@ -50,7 +52,9 @@ function add_quantity_slider() {
     ?>
     <div class="quantity-range-slider">
         <label for="quantity"><?php _e( 'Quantity', 'woocommerce' ); ?></label>
+        <input type="button" value="-" class="minus">
         <input type="range" id="quantity" class="" name="quantity" min="<?php echo esc_attr( $min_value ); ?>" max="<?php echo esc_attr( $max_value ); ?>" step="<?php echo esc_attr( $step ); ?>" value="<?php echo esc_attr( $value ); ?>">
+        <input type="button" value="+" class="plus">
         <div class="quantity_slide"><?php echo esc_html( $value ); ?></div>
     </div>
     <?php
@@ -61,4 +65,14 @@ function add_hidden_quantity_field() {
     echo '<input type="hidden" name="add-to-cart" value="' . esc_attr( $product->get_id() ) . '">';
 }
 add_action( 'woocommerce_before_add_to_cart_button', 'add_hidden_quantity_field' );
-
+//shop page title ordering
+function title_ordering_astra_woo_shop_product_structure($field){
+    $title = $field[1];
+    $add_cart = $field[4];
+    unset($field[1]);
+    unset($field[4]);
+    $field[1] = $title;
+    $field[4] = $add_cart;
+    return $field;
+}
+add_filter('astra_woo_shop_product_structure', 'title_ordering_astra_woo_shop_product_structure');
