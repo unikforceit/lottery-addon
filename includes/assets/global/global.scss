@@ -1,4 +1,4 @@
-body{
+body {
   background-color: #000 !important;
 }
 
@@ -25,9 +25,10 @@ p.price.lty-lottery-status {
   line-height: 1 !important;
   padding: 6px 15px !important;
   z-index: 50;
-  font-family: "Urbanist",sans-serif;
+  font-family: "Urbanist", sans-serif;
   letter-spacing: .1rem;
 }
+
 .lty-shop-timer-wrapper {
   background: transparent;
 }
@@ -40,12 +41,14 @@ p.price.lty-lottery-status {
 .lty-shop-timer-section {
   color: #fcb800;
 }
+
 .lty-shop-timer-wrapper .lty-shop-timer-container {
   width: 60%;
   margin: 0 auto;
   padding: 20px 0;
   display: block;
 }
+
 .lty-shop-timer-section:before {
   content: none;
 }
@@ -76,17 +79,21 @@ p.price.lty-lottery-status {
   background-repeat: no-repeat;
   background-size: 43px 18px !important;
 }
+
 .woocommerce ul.products li.product .ast-woo-product-category, .woocommerce-page ul.products li.product .ast-woo-product-category {
   display: none;
 }
+
 .woocommerce ul.products li.product .woocommerce-loop-product__title, .woocommerce-page ul.products li.product .woocommerce-loop-product__title {
   color: #fff;
   font-size: 24px;
 }
+
 .woocommerce ul.products li.product .price, .woocommerce-page ul.products li.product .price {
   color: #289894;
   font-size: 24px;
 }
+
 .woocommerce ul.products li.product .button, .woocommerce-page ul.products li.product .button {
   font-weight: 700;
   width: 100%;
@@ -100,12 +107,14 @@ p.price.lty-lottery-status {
   text-transform: uppercase;
   letter-spacing: .1rem;
 }
+
 .woocommerce ul.products li.product .button:hover, .woocommerce-page ul.products li.product .button:hover {
   filter: brightness(110%);
   border-color: #fcb800;
   background-color: #fcb800;
   color: #111;
 }
+
 a.button.wp-element-button.product_type_lottery.add_to_cart_button:after {
   content: "";
   position: absolute;
@@ -119,9 +128,11 @@ a.button.wp-element-button.product_type_lottery.add_to_cart_button:after {
   background-repeat: no-repeat;
   transition: .3s;
 }
+
 .woocommerce ul.products li.product .star-rating, .woocommerce-page ul.products li.product .star-rating {
   display: none;
 }
+
 .lty-lottery-progress-bar-loop .lty-progress-remaining-count {
   display: none;
 }
@@ -172,11 +183,13 @@ a.button.wp-element-button.product_type_lottery.add_to_cart_button:after {
   font-size: 24px;
   font-family: 'Urbanist';
 }
+
 .woocommerce ul.products li.product .price, .woocommerce-page ul.products li.product .price {
   color: #289894;
   font-size: 24px;
   padding-top: 15px;
 }
+
 .astra-shop-summary-wrap {
   position: relative;
 }
@@ -186,21 +199,26 @@ span.lta_after_price {
   font-size: 10px;
   margin-left: 5px;
 }
+
 del span.lta_after_price, .ast-on-card-button, .lty-lottery-time-left-label-shop-page, .lty-progress-count-loop .lty-progress-bar-notice {
   display: none;
 }
+
 .lty-lottery-progress-bar-loop {
   position: relative;
 }
+
 .lty-progress-count-loop {
   position: absolute;
   top: -10px;
   z-index: 2;
   left: 40%;
 }
+
 .lty-progress-count-loop .lty-progress-bar-start {
   width: 10%;
 }
+
 .lty-progress-bar {
   background-color: #29292c !important;
   border: 1px solid #29292c !important;
@@ -208,9 +226,11 @@ del span.lta_after_price, .ast-on-card-button, .lty-lottery-time-left-label-shop
   overflow: hidden;
   color: #fff !important;
 }
+
 .lty-progress-count-loop .lty-progress-bar-end {
   width: 5%;
 }
+
 .quantity input[type="button"] {
   width: 30px;
   height: 30px;
@@ -225,6 +245,7 @@ del span.lta_after_price, .ast-on-card-button, .lty-lottery-time-left-label-shop
   font-size: 42px !important;
   font-family: 'Urbanist';
 }
+
 .quantity-range-slider label:first-child {
   display: none;
 }
@@ -242,12 +263,15 @@ del span.lta_after_price, .ast-on-card-button, .lty-lottery-time-left-label-shop
   border-color: #fcb800 !important;
   transition: .3s;
 }
+
 .quantity-range-slider input[type=range] {
   margin: 0px 10px;
 }
+
 .quantity-range-slider {
   margin-bottom: 40px;
 }
+
 form.cart.lty-participate-now .quantity {
   display: none;
 }
@@ -257,16 +281,17 @@ form.cart.lty-participate-now .quantity {
   background-color: #289894;
   transition: .3s;
   border-radius: 5px;
-  letter-spacing: .2rem!important;
-  font-family: urbanist,sans-serif;
+  letter-spacing: .2rem !important;
+  font-family: urbanist, sans-serif;
   text-transform: uppercase;
   line-height: 29px;
 }
 
 .woocommerce div.product form.cart .button:hover {
-  background-color: #fcb800!important;
+  background-color: #fcb800 !important;
   transition: .3s;
 }
+
 p.lty-lottery-time-left-label {
   display: none;
 }
@@ -274,19 +299,23 @@ p.lty-lottery-time-left-label {
 .woocommerce div.product .product_meta {
   border-top: none;
 }
+
 body.single-product .summary .price {
   margin-bottom: 2px;
 }
+
 .single-product div.product .price {
   color: #295cd9;
   padding-top: 0;
   font-weight: bold;
   font-size: 1.5rem;
 }
+
 body.single-product .summary .price .woocommerce-Price-amount {
   color: #289894 !important;
   font-size: 42px !important;
 }
+
 .single-product div.product .price .lta_after_price {
   color: #a5b0b8;
   text-transform: uppercase;
@@ -294,11 +323,13 @@ body.single-product .summary .price .woocommerce-Price-amount {
   font-weight: bold;
   margin-left: 4px;
 }
+
 .woocommerce-error, .woocommerce-info, .woocommerce-message {
   color: #155724;
   background-color: #d4edda;
   border-color: #c3e6cb;
 }
+
 .woocommerce-page table.cart td.actions .button,
 .woocommerce-page #content table.cart td.actions .button, .woocommerce a.button.alt,
 .woocommerce .woocommerce-message a.button,
@@ -317,28 +348,31 @@ body.single-product .summary .price .woocommerce-Price-amount {
   font-size: 16px;
   position: relative;
   font-weight: 700;
-  font-family: "Barlow Condensed",sans-serif;
+  font-family: "Barlow Condensed", sans-serif;
   text-transform: uppercase !important;
   letter-spacing: .1rem;
 }
+
 .lty-lottery-countdown-timer .lty-lottery-timer {
   color: #fcb800;
 }
+
 .lty-lottery-date-ranges {
   margin-bottom: 10px;
   background-color: transparent !important;
   padding: 0 90px !important;
-  background-image: url(//northern-competitions.co.uk/wp-content/themes/northern-competitions/assets/css/../images/timer-left.png),url(//northern-competitions.co.uk/wp-content/themes/northern-competitions/assets/css/../images/timer-right.png) !important;
-  background-position: left 30px center,right 30px center !important;
+  background-image: url(//northern-competitions.co.uk/wp-content/themes/northern-competitions/assets/css/../images/timer-left.png), url(//northern-competitions.co.uk/wp-content/themes/northern-competitions/assets/css/../images/timer-right.png) !important;
+  background-position: left 30px center, right 30px center !important;
   background-repeat: no-repeat !important;
   background-size: 43px 18px !important;
   margin: 0 auto;
 }
+
 .lty-shop-timer-wrapper {
   background: transparent;
   background-color: transparent !important;
-  background-image: url(//northern-competitions.co.uk/wp-content/themes/northern-competitions/assets/css/../images/timer-left.png),url(//northern-competitions.co.uk/wp-content/themes/northern-competitions/assets/css/../images/timer-right.png) !important;
-  background-position: left 10px center,right 20px center !important;
+  background-image: url(//northern-competitions.co.uk/wp-content/themes/northern-competitions/assets/css/../images/timer-left.png), url(//northern-competitions.co.uk/wp-content/themes/northern-competitions/assets/css/../images/timer-right.png) !important;
+  background-position: left 10px center, right 20px center !important;
   background-repeat: no-repeat !important;
   background-size: 43px 18px !important;
 }

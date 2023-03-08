@@ -127,3 +127,4 @@ add_filter( 'lty_lottery_product_participate_now_text', 'lty_single_product_page
 function lty_single_product_page_add_to_cart_button_text_change() {
     return __( 'Add To Basket', 'lotteryaddons' );
 }
+//New Function
