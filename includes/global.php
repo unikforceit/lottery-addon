@@ -102,7 +102,7 @@ function add_quantity_slider() {
         <input type="range" id="quantity" class="" name="quantity" min="<?php echo esc_attr( $min_value ); ?>" max="<?php echo esc_attr( $max_value ); ?>" step="<?php echo esc_attr( $step ); ?>" value="<?php echo esc_attr( $value ); ?>">
         <span class="max-qty"><?php echo esc_attr( $max_value ); ?></span>
         <input type="button" value="+" class="plus">
-        <span class="quantity_slide"><?php echo esc_html( $value ); ?></span>
+        <output for="quantity"><?php echo esc_html( $value ); ?></output>
     </div>
     <?php
 }
