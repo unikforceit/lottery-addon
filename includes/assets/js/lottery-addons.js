@@ -31,5 +31,8 @@
             //elementorFrontend.hooks.addAction('frontend/element_ready/lotteryaddons_ad_block.default', adblocklist);
         }
     });
+
+//    add custom text after after price in shop page
+    $( "span.woocommerce-Price-amount.amount:last-child" ).append( "<span class='lta_after_price'>Per Entry</span>" );
 console.log('addon js loaded');
 })(jQuery);

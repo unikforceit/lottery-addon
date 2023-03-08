@@ -62,3 +62,15 @@ function add_hidden_quantity_field() {
 }
 add_action( 'woocommerce_before_add_to_cart_button', 'add_hidden_quantity_field' );
 
+//shop page title ordering
+function title_ordering_astra_woo_shop_product_structure($field){
+    $title = $field[1];
+    $add_cart = $field[4];
+    unset($field[1]);
+    unset($field[4]);
+    $field[1] = $title;
+    $field[4] = $add_cart;
+    return $field;
+}
+add_filter('astra_woo_shop_product_structure', 'title_ordering_astra_woo_shop_product_structure');
+
