@@ -14,8 +14,56 @@ add_action('wp_enqueue_scripts', 'lottery_addons_enqueue_scripts');
 
 remove_action('lty_lottery_single_product_content', 'LTY_Lottery_Single_Product_Templates::render_date_ranges_template', 10);
 add_action('lty_after_add_to_cart_form', 'LTY_Lottery_Single_Product_Templates::render_date_ranges_template', 10);
+remove_action('lty_lottery_single_product_content', 'LTY_Lottery_Single_Product_Templates::render_progress_bar_template', 30);
+add_action('lty_after_add_to_cart_form', 'LTY_Lottery_Single_Product_Templates::render_progress_bar_template', 10);
+remove_action('lty_lottery_single_product_content', 'LTY_Lottery_Single_Product_Templates::render_tickets_status_template', 5);
+remove_action('lty_lottery_single_product_content', 'LTY_Lottery_Single_Product_Templates::render_minimum_tickets_notice_template', 15);
+remove_action('lty_lottery_single_product_content', 'LTY_Lottery_Single_Product_Templates::render_maximum_tickets_notice_template', 15);
+remove_action('lty_lottery_single_product_content', 'LTY_Lottery_Single_Product_Templates::render_maximum_tickets_per_user_notice_template', 15);
+remove_action('lty_lottery_single_product_content', 'LTY_Lottery_Single_Product_Templates::render_minimum_tickets_per_user_notice_template', 15);
+remove_action('lty_lottery_single_product_content', 'LTY_Lottery_Single_Product_Templates::render_gift_product_notice_template', 20);
+remove_action('woocommerce_single_product_summary', 'woocommerce_template_single_title', 10);
+function remove_product_meta() {
+    remove_action( 'woocommerce_single_product_summary', 'woocommerce_template_single_meta', 40 );
+}
+add_action( 'woocommerce_single_product_summary', 'remove_product_meta', 5 );
 
+function remove_product_title_from_structure( $structure ) {
+    $key = array_search( 'title', $structure );
+    if ( false !== $key ) {
+        unset( $structure[ $key ] );
+    }
+    return $structure;
+}
 
+add_filter( 'astra_woo_single_product_structure', 'remove_product_title_from_structure', 15 );
+function remove_product_meta_from_structure( $structure ) {
+    $key = array_search( 'meta', $structure );
+    if ( false !== $key ) {
+        unset( $structure[ $key ] );
+    }
+    return $structure;
+}
+
+add_filter( 'astra_woo_single_product_structure', 'remove_product_meta_from_structure', 15 );
+function remove_product_des_from_structure( $structure ) {
+    $key = array_search( 'short_desc', $structure );
+    if ( false !== $key ) {
+        unset( $structure[ $key ] );
+    }
+    return $structure;
+}
+
+add_filter( 'astra_woo_single_product_structure', 'remove_product_des_from_structure', 15 );
+function remove_product_category_from_structure( $structure ) {
+    $key = array_search( 'category', $structure );
+    if ( false !== $key ) {
+        unset( $structure[ $key ] );
+    }
+    return $structure;
+}
+
+add_filter( 'astra_woo_single_product_structure', 'remove_product_category_from_structure', 15 );
 //remove woocommere breadcrumb
 remove_action('woocommerce_before_main_content' , 'woocommerce_breadcrumb', 20);
 
@@ -49,9 +97,12 @@ function add_quantity_slider() {
 
     ?>
     <div class="quantity-range-slider">
-        <label for="quantity"><?php _e( 'Quantity', 'woocommerce' ); ?></label>
+        <input type="button" value="-" class="minus">
+        <span class="min-qty"><?php echo esc_attr( $min_value ); ?></span>
         <input type="range" id="quantity" class="" name="quantity" min="<?php echo esc_attr( $min_value ); ?>" max="<?php echo esc_attr( $max_value ); ?>" step="<?php echo esc_attr( $step ); ?>" value="<?php echo esc_attr( $value ); ?>">
-        <div class="quantity_slide"><?php echo esc_html( $value ); ?></div>
+        <span class="max-qty"><?php echo esc_attr( $max_value ); ?></span>
+        <input type="button" value="+" class="plus">
+        <output for="quantity"><?php echo esc_html( $value ); ?></output>
     </div>
     <?php
 }
@@ -61,6 +112,21 @@ function add_hidden_quantity_field() {
     echo '<input type="hidden" name="add-to-cart" value="' . esc_attr( $product->get_id() ) . '">';
 }
 add_action( 'woocommerce_before_add_to_cart_button', 'add_hidden_quantity_field' );
+//shop page title ordering
+function title_ordering_astra_woo_shop_product_structure($field){
+    $title = $field[1];
+    $add_cart = $field[4];
+    unset($field[1]);
+    unset($field[4]);
+    $field[1] = $title;
+    $field[4] = $add_cart;
+    return $field;
+}
+add_filter('astra_woo_shop_product_structure', 'title_ordering_astra_woo_shop_product_structure');
+add_filter( 'lty_lottery_product_participate_now_text', 'lty_single_product_page_add_to_cart_button_text_change' );
+function lty_single_product_page_add_to_cart_button_text_change() {
+    return __( 'Add To Basket', 'lotteryaddons' );
+}
 
 //shop page title ordering
 function title_ordering_astra_woo_shop_product_structure($field){
