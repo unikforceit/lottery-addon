@@ -127,16 +127,3 @@ add_filter( 'lty_lottery_product_participate_now_text', 'lty_single_product_page
 function lty_single_product_page_add_to_cart_button_text_change() {
     return __( 'Add To Basket', 'lotteryaddons' );
 }
-
-//shop page title ordering
-function title_ordering_astra_woo_shop_product_structure($field){
-    $title = $field[1];
-    $add_cart = $field[4];
-    unset($field[1]);
-    unset($field[4]);
-    $field[1] = $title;
-    $field[4] = $add_cart;
-    return $field;
-}
-add_filter('astra_woo_shop_product_structure', 'title_ordering_astra_woo_shop_product_structure');
-
