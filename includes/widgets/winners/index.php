@@ -3,17 +3,17 @@
 namespace Elementor;
 if (!defined('ABSPATH')) exit; // Exit if accessed directly
 
-class lotteryaddons_coursedate extends Widget_Base
+class lotteryaddons_winners extends Widget_Base
 {
 
     public function get_name()
     {
-        return 'lotteryaddons-coursedate';
+        return 'lotteryaddons-winners';
     }
 
     public function get_title()
     {
-        return __('Course Date', 'lotteryaddons');
+        return __('Winner List', 'lotteryaddons');
     }
 
     public function get_categories()
@@ -196,6 +196,32 @@ class lotteryaddons_coursedate extends Widget_Base
     protected function render()
     {
         $settings = $this->get_settings_for_display();
+        $winners = lty_get_lottery_winners();
+        ?>
+        <div class="winner-lists-lottery-addons">
+            <?php
+            if (!empty($winners)){
+            foreach ($winners as $winner) {
+                $winner = lty_get_lottery_winner($winner);
+                $order_id = $winner->get_order_id();
+                $order = wc_get_order($order_id);
+                $end_date = \LTY_Date_Time::get_wp_format_datetime_from_gmt( $winner->get_product()->get_lty_end_date_gmt(), false, ' ', false );
+                ?>
+                <div class="winners-box-lt-a">
+                    <div class="winner-img-lty-a">
+                        <?php echo wp_kses_post($winner->get_product()->get_image('full')); ?>
+                    </div>
+                    <div class="winner-body-txt">
+                        <h4><?php echo esc_html($winner->get_product()->get_title()); ?></h4>
+                        <p><?php echo esc_html($winner->get_user()->first_name); ?> <?php echo esc_html($winner->get_user()->last_name); ?> from <?php echo esc_html($order->get_billing_city()); ?>
+                            <?php echo esc_html( $end_date ); ?></p>
+                        <span>Ticket #<?php echo esc_html($winner->get_lottery_ticket_number()); ?></span>
+                    </div>
+                </div>
+            <?php } }?>
+        </div>
+        <?php
+
 
     }
 
@@ -210,5 +236,5 @@ class lotteryaddons_coursedate extends Widget_Base
 
 }
 
-Plugin::instance()->widgets_manager->register(new lotteryaddons_coursedate());
+Plugin::instance()->widgets_manager->register(new lotteryaddons_winners());
 ?>
