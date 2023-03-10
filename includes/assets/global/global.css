@@ -1,0 +1,425 @@
+@charset "UTF-8";
+body {
+  background-color: #000 !important;
+}
+
+.woocommerce ul.products li.product.desktop-align-left, .woocommerce-page ul.products li.product.desktop-align-left {
+  background-color: #171717;
+  text-align: center;
+  border-radius: 0 !important;
+  overflow: hidden;
+  border: 1px solid #444 !important;
+  padding: 7px 7px 12px !important;
+  box-shadow: 0 0.5rem 1rem rgba(23, 23, 23, 0.15);
+}
+
+p.price.lty-lottery-status {
+  margin: 5px 0 0 !important;
+  position: relative;
+  font-size: 15px !important;
+  text-transform: uppercase !important;
+  background-color: #4d4d4d !important;
+  font-weight: 900 !important;
+  color: #fff !important;
+  width: auto;
+  border-radius: 5px;
+  line-height: 1 !important;
+  padding: 6px 15px !important;
+  z-index: 50;
+  font-family: "Urbanist", sans-serif;
+  letter-spacing: 0.1rem;
+}
+
+.lty-shop-timer-wrapper {
+  background: transparent;
+}
+
+.lty-lottery-countdown-timer #lty_lottery_days, .lty-lottery-countdown-timer #lty_lottery_hours, .lty-lottery-countdown-timer #lty_lottery_minutes, .lty-lottery-countdown-timer #lty_lottery_seconds {
+  color: #ffffff !important;
+  font-size: 26px;
+}
+
+.lty-shop-timer-section {
+  color: #fcb800;
+}
+
+.lty-shop-timer-wrapper .lty-shop-timer-container {
+  width: 60%;
+  margin: 0 auto;
+  padding: 20px 0;
+  display: block;
+}
+
+.lty-shop-timer-section:before {
+  content: none;
+}
+
+.lty-shop-timer-wrapper {
+  position: relative;
+  border-bottom: 1px solid #444;
+}
+
+.lty-shop-timer-wrapper::before {
+  content: "‎ ";
+  position: absolute;
+  left: 25px;
+  top: 40%;
+  background-image: url(http://lottery.test/wp-content/uploads/2023/03/timer-left.png);
+  width: 100%;
+  background-repeat: no-repeat;
+  background-size: 43px 18px;
+}
+
+.lty-shop-timer-wrapper::after {
+  content: "‎ ";
+  position: absolute;
+  left: 77%;
+  top: 40%;
+  background-image: url(http://lottery.test/wp-content/uploads/2023/03/timer-left-Copy.png);
+  width: 100%;
+  background-repeat: no-repeat;
+  background-size: 43px 18px !important;
+}
+
+.woocommerce ul.products li.product .ast-woo-product-category, .woocommerce-page ul.products li.product .ast-woo-product-category {
+  display: none;
+}
+
+.woocommerce ul.products li.product .woocommerce-loop-product__title, .woocommerce-page ul.products li.product .woocommerce-loop-product__title {
+  color: #fff;
+  font-size: 24px;
+}
+
+.woocommerce ul.products li.product .price, .woocommerce-page ul.products li.product .price {
+  color: #289894;
+  font-size: 24px;
+}
+
+.woocommerce ul.products li.product .button, .woocommerce-page ul.products li.product .button {
+  font-weight: 700;
+  width: 100%;
+  background-color: #444;
+  border: 2px solid #444;
+  padding: 10px 75px 10px 20px;
+  border-radius: 30px;
+  text-align: left;
+  font-size: 14px;
+  transition: all 300ms ease-in-out;
+  text-transform: uppercase;
+  letter-spacing: 0.1rem;
+}
+
+.woocommerce ul.products li.product .button:hover, .woocommerce-page ul.products li.product .button:hover {
+  filter: brightness(110%);
+  border-color: #fcb800;
+  background-color: #fcb800;
+  color: #111;
+}
+
+a.button.wp-element-button.product_type_lottery.add_to_cart_button:after {
+  content: "";
+  position: absolute;
+  right: 15px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 11px;
+  height: 20px;
+  background-image: url(http://lottery.test/wp-content/uploads/2023/03/icon-arrow-button.svg);
+  background-size: 11px 20px;
+  background-repeat: no-repeat;
+  transition: 0.3s;
+}
+
+.woocommerce ul.products li.product .star-rating, .woocommerce-page ul.products li.product .star-rating {
+  display: none;
+}
+
+.lty-lottery-progress-bar-loop .lty-progress-remaining-count {
+  display: none;
+}
+
+.quantity-range-slider {
+  display: flex;
+  align-items: center;
+}
+
+.quantity-range-slider label {
+  margin-right: 10px;
+}
+
+.quantity-range-slider input[type=range] {
+  -webkit-appearance: none;
+  width: 100%;
+  height: 10px;
+  background-color: #ddd;
+  border-radius: 5px;
+  outline: none;
+}
+
+.quantity-range-slider input[type=range]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  width: 20px;
+  height: 20px;
+  background-color: #007cba;
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+.quantity-range-slider input[type=range]::-moz-range-thumb {
+  width: 20px;
+  height: 20px;
+  background-color: #007cba;
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+.quantity-range-slider .quantity_slide {
+  margin-left: 10px;
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.woocommerce ul.products li.product .woocommerce-loop-product__title, .woocommerce-page ul.products li.product .woocommerce-loop-product__title {
+  color: #fff;
+  font-size: 24px;
+  font-family: "Urbanist";
+}
+
+.woocommerce ul.products li.product .price, .woocommerce-page ul.products li.product .price {
+  color: #289894;
+  font-size: 24px;
+  padding-top: 15px;
+}
+
+.astra-shop-summary-wrap {
+  position: relative;
+}
+
+span.lta_after_price {
+  color: #fff;
+  font-size: 10px;
+  margin-left: 5px;
+}
+
+del span.lta_after_price, .ast-on-card-button, .lty-lottery-time-left-label-shop-page, .lty-progress-count-loop .lty-progress-bar-notice {
+  display: none;
+}
+
+.lty-lottery-progress-bar-loop {
+  position: relative;
+}
+
+.lty-progress-count-loop {
+  position: absolute;
+  top: -10px;
+  z-index: 2;
+  left: 40%;
+}
+
+.lty-progress-count-loop .lty-progress-bar-start {
+  width: 10%;
+}
+
+.lty-progress-bar {
+  background-color: #29292c !important;
+  border: 1px solid #29292c !important;
+  border-radius: 2px !important;
+  overflow: hidden;
+  color: #fff !important;
+}
+
+.lty-progress-count-loop .lty-progress-bar-end {
+  width: 5%;
+}
+
+.quantity input[type=button] {
+  width: 30px;
+  height: 30px;
+  font-size: 20px;
+  font-weight: bold;
+  line-height: 1;
+  text-align: center;
+  cursor: pointer;
+}
+
+.woocommerce div.product p.price bdi {
+  font-size: 42px !important;
+  font-family: "Urbanist";
+}
+
+.quantity-range-slider label:first-child {
+  display: none;
+}
+
+.quantity-range-slider input[type=button] {
+  border-radius: 5px;
+  background-color: #4e4e55;
+  border: 2px solid #4e4e55 !important;
+  color: #fff !important;
+  font-weight: 700;
+  transition: 0.3s;
+}
+
+.quantity-range-slider input[type=button]:hover {
+  border-color: #fcb800 !important;
+  transition: 0.3s;
+}
+
+.quantity-range-slider input[type=range] {
+  margin: 0px 10px;
+}
+
+.quantity-range-slider {
+  margin-bottom: 40px;
+}
+
+form.cart.lty-participate-now .quantity {
+  display: none;
+}
+
+.woocommerce div.product form.cart .button {
+  width: 100%;
+  background-color: #289894;
+  transition: 0.3s;
+  border-radius: 5px;
+  letter-spacing: 0.2rem !important;
+  font-family: urbanist, sans-serif;
+  text-transform: uppercase;
+  line-height: 29px;
+}
+
+.woocommerce div.product form.cart .button:hover {
+  background-color: #fcb800 !important;
+  transition: 0.3s;
+}
+
+p.lty-lottery-time-left-label {
+  display: none;
+}
+
+.woocommerce div.product .product_meta {
+  border-top: none;
+}
+
+body.single-product .summary .price {
+  margin-bottom: 2px;
+}
+
+.single-product div.product .price {
+  color: #295cd9;
+  padding-top: 0;
+  font-weight: bold;
+  font-size: 1.5rem;
+}
+
+body.single-product .summary .price .woocommerce-Price-amount {
+  color: #289894 !important;
+  font-size: 42px !important;
+}
+
+.single-product div.product .price .lta_after_price {
+  color: #a5b0b8;
+  text-transform: uppercase;
+  font-size: 13px;
+  font-weight: bold;
+  margin-left: 4px;
+}
+
+.woocommerce-error, .woocommerce-info, .woocommerce-message {
+  color: #155724;
+  background-color: #d4edda;
+  border-color: #c3e6cb;
+}
+
+.woocommerce-page table.cart td.actions .button,
+.woocommerce-page #content table.cart td.actions .button, .woocommerce a.button.alt,
+.woocommerce .woocommerce-message a.button,
+.ast-site-header-cart .widget_shopping_cart .buttons .button.checkout,
+.woocommerce button.button.alt.disabled,
+.wc-block-grid__products .wc-block-grid__product .wp-block-button__link {
+  background-color: #111;
+  border-color: #fcb800;
+  color: #fff;
+  font-style: normal;
+  border-radius: 30px;
+  padding: 8px 50px 10px 30px;
+  border-width: 2px;
+  white-space: nowrap;
+  text-align: left;
+  font-size: 16px;
+  position: relative;
+  font-weight: 700;
+  font-family: "Barlow Condensed", sans-serif;
+  text-transform: uppercase !important;
+  letter-spacing: 0.1rem;
+}
+
+.lty-lottery-countdown-timer .lty-lottery-timer {
+  color: #fcb800;
+}
+
+.lty-lottery-date-ranges {
+  margin-bottom: 10px;
+  background-color: transparent !important;
+  padding: 0 90px !important;
+  background-image: url(//northern-competitions.co.uk/wp-content/themes/northern-competitions/assets/css/../images/timer-left.png), url(//northern-competitions.co.uk/wp-content/themes/northern-competitions/assets/css/../images/timer-right.png) !important;
+  background-position: left 30px center, right 30px center !important;
+  background-repeat: no-repeat !important;
+  background-size: 43px 18px !important;
+  margin: 0 auto;
+}
+
+.lty-shop-timer-wrapper {
+  background: transparent;
+  background-color: transparent !important;
+  background-image: url(//northern-competitions.co.uk/wp-content/themes/northern-competitions/assets/css/../images/timer-left.png), url(//northern-competitions.co.uk/wp-content/themes/northern-competitions/assets/css/../images/timer-right.png) !important;
+  background-position: left 10px center, right 20px center !important;
+  background-repeat: no-repeat !important;
+  background-size: 43px 18px !important;
+}
+
+.winner-lists-lottery-addons {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-gap: 30px;
+}
+
+.winners-box-lt-a {
+  background-color: #242424;
+  padding: 4px;
+  border-radius: 0;
+  border: 1px solid #444;
+  box-shadow: 0 0.5rem 1rem rgba(23, 23, 23, 0.15);
+  height: 100%;
+  margin-bottom: 0;
+}
+.winners-box-lt-a .winner-body-txt {
+  flex: 1 1 auto;
+  min-height: 1px;
+  padding: 1.25rem;
+}
+.winners-box-lt-a .winner-body-txt h4 {
+  color: #fff;
+  font-weight: 900;
+  font-family: "Urbanist", sans-serif;
+  margin-top: 2rem;
+}
+.winners-box-lt-a .winner-body-txt p {
+  color: #fcb800;
+}
+.winners-box-lt-a .winner-body-txt span {
+  color: #fff;
+}
+
+.lty-pagination-a ul {
+  display: flex;
+  padding-left: 0;
+  list-style: none;
+  border-radius: 0.25rem;
+}
+
+span.ast-shop-product-out-of-stock {
+  display: none;
+}
+
+/*# sourceMappingURL=global.css.map */
