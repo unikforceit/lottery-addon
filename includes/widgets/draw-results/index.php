@@ -3,17 +3,17 @@
 namespace Elementor;
 if (!defined('ABSPATH')) exit; // Exit if accessed directly
 
-class lotteryaddons_winners extends Widget_Base
+class lotteryaddons_draw_res extends Widget_Base
 {
 
     public function get_name()
     {
-        return 'lotteryaddons-winners';
+        return 'lotteryaddons-draw_res';
     }
 
     public function get_title()
     {
-        return __('Winner List', 'lotteryaddons');
+        return __('Draw Results', 'lotteryaddons');
     }
 
     public function get_categories()
@@ -198,7 +198,7 @@ class lotteryaddons_winners extends Widget_Base
         $settings = $this->get_settings_for_display();
         $winners = lty_get_lottery_winners();
         ?>
-        <div class="winner-lists-lottery-addons">
+        <div class="draw-lists-lottery-addons">
             <?php
             if (!empty($winners)){
             foreach ($winners as $winner) {
@@ -256,5 +256,5 @@ class lotteryaddons_winners extends Widget_Base
 
 }
 
-Plugin::instance()->widgets_manager->register(new lotteryaddons_winners());
+Plugin::instance()->widgets_manager->register(new lotteryaddons_draw_res());
 ?>
