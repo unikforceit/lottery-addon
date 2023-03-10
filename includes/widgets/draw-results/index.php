@@ -207,7 +207,7 @@ class lotteryaddons_draw_res extends Widget_Base
                 $order = wc_get_order($order_id);
                 $end_date = \LTY_Date_Time::get_wp_format_datetime_from_gmt( $winner->get_product()->get_lty_end_date_gmt(), false, ' ', false );
                 ?>
-                <div class="winners-box-lt-a">
+                <div class="draw-result-box-lt-a">
                     <div class="winner-img-lty-a">
                         <?php echo wp_kses_post($winner->get_product()->get_image('full')); ?>
                     </div>
