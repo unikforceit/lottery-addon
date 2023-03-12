@@ -128,3 +128,8 @@ function lty_single_product_page_add_to_cart_button_text_change() {
     return __( 'Add To Basket', 'lotteryaddons' );
 }
 //New Function done
+
+function addition_text_render_winners_count_template(){
+    echo "For information about free postal entries, please <a class='additiona_single_text' href='https://showmethemoneycompetitions.com/terms-conditions/'>click here.</a>";
+}
+add_action('lty_lottery_single_product_content', 'addition_text_render_winners_count_template');
