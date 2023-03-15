@@ -346,6 +346,11 @@ body.single-product .summary .price .woocommerce-Price-amount {
   grid-template-columns: repeat(4, 1fr);
   column-gap: 30px;
   row-gap: 1.5rem;
+  @media (max-width: 767px) {
+    grid-template-columns: repeat(2, 1fr);
+    column-gap: 5px;
+    row-gap: 0.5rem;
+  }
 }
 .winners-box-lt-a {
   background-color: #242424;

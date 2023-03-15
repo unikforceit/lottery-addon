@@ -384,6 +384,13 @@ body.single-product .summary .price .woocommerce-Price-amount {
   column-gap: 30px;
   row-gap: 1.5rem;
 }
+@media (max-width: 767px) {
+  .winner-lists-lottery-addons {
+    grid-template-columns: repeat(2, 1fr);
+    column-gap: 5px;
+    row-gap: 0.5rem;
+  }
+}
 
 .winners-box-lt-a {
   background-color: #242424;
