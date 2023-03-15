@@ -102,7 +102,7 @@ function add_quantity_slider() {
         <input type="range" id="quantity" class="" name="quantity" min="<?php echo esc_attr( $min_value ); ?>" max="<?php echo esc_attr( $max_value ); ?>" step="<?php echo esc_attr( $step ); ?>" value="<?php echo esc_attr( $value ); ?>">
         <span class="max-qty"><?php echo esc_attr( $max_value ); ?></span>
         <input type="button" value="+" class="plus">
-        <span class="quantity_slide"><?php echo esc_html( $value ); ?></span>
+        <output for="quantity"><?php echo esc_html( $value ); ?></output>
     </div>
     <?php
 }
@@ -127,3 +127,9 @@ add_filter( 'lty_lottery_product_participate_now_text', 'lty_single_product_page
 function lty_single_product_page_add_to_cart_button_text_change() {
     return __( 'Add To Basket', 'lotteryaddons' );
 }
+//New Function done
+
+function addition_text_render_winners_count_template(){
+    echo "For information about free postal entries, please <a class='additiona_single_text' href='https://showmethemoneycompetitions.com/terms-conditions/'>click here.</a>";
+}
+add_action('lty_lottery_single_product_content', 'addition_text_render_winners_count_template');
