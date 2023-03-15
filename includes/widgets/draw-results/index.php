@@ -64,11 +64,15 @@ class lotteryaddons_draw_res extends Widget_Base
         $settings = $this->get_settings_for_display();
         $paged = ( get_query_var( 'paged' ) ) ? get_query_var( 'paged' ) : 1;
         $args = array(
-            'post_type' => 'lty_lottery_winner',
-            'post_status' => array('lty_publish'),
+            'post_type' => 'product',
             'posts_per_page' => $settings['number_winner'],
-            'fields' => 'ids',
-            'orderby' => 'ID',
+            'tax_query' => array(
+                array(
+                    'taxonomy' => 'product_type',
+                    'field'    => 'slug',
+                    'terms'    => 'lottery',
+                ),
+            ),
             'paged' => $paged
         );
         ?>
@@ -79,22 +83,26 @@ class lotteryaddons_draw_res extends Widget_Base
         if ($query->have_posts()) {
             while ($query->have_posts()) {
                 $query->the_post();
-                $winner = lty_get_lottery_winner(get_the_ID());
-                $end_date = \LTY_Date_Time::get_wp_format_datetime_from_gmt( $winner->get_product()->get_lty_end_date_gmt(), false, ' ', false );
+                global $product;
+                $tickets = get_post_meta(get_the_ID(), '_lty_hold_tickets', true);
+                $status = get_post_meta(get_the_ID(), '_lty_lottery_status', true);
+                $end = get_post_meta(get_the_ID(), '_lty_finished_date', true);
+                if ($status == 'lty_lottery_finished'){
                 ?>
                 <div class="lty-a-winner-card">
                     <div class="lty-a-card-body">
-                        <h4 class="lty-a-card-title"><?php echo esc_html( $end_date ); ?></h4>
-
+                        <h4 class="lty-a-card-title"><?php echo esc_html($end); ?></h4>
+                        <?php foreach ($tickets as $ticket){ ?>
                         <div class="lty-a-single-result">
-                            <strong></strong>
-                            <span class="ticket-winner-name"><?php echo esc_html($winner->get_user()->first_name); ?> <?php echo esc_html($winner->get_user()->last_name); ?></span>
-                            <span class="ticket-winner-tn"> - Ticket #<?php echo esc_html($winner->get_lottery_ticket_number()); ?></span>
+                            <strong><?php echo wp_kses_post('$'.$product->get_sale_price());?> <?php the_title(); ?> Winners:</strong>
+                            <span class="ticket-winner-name">Jhon Martin</span>
+                            <span class="ticket-winner-tn"> - Ticket #<?php echo esc_html($ticket); ?></span>
                         </div>
-
+                    <?php } ?>
                     </div>
                 </div>
                 <?php
+                }
             }
             // Display pagination links
             ?>

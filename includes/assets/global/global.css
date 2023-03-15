@@ -107,6 +107,7 @@ p.price.lty-lottery-status {
   transition: all 300ms ease-in-out;
   text-transform: uppercase;
   letter-spacing: 0.1rem;
+  color: #ffffff;
 }
 
 .woocommerce ul.products li.product .button:hover, .woocommerce-page ul.products li.product .button:hover {
@@ -503,6 +504,205 @@ span.ast-shop-product-out-of-stock {
 }
 .lty-a-competition-results-wrapper .lty-a-result-wrap .lty-a-winner-card .lty-a-card-body .lty-a-single-result .ticket-winner-tn {
   color: #fcb800;
+}
+
+.single-product .lty-lottery-date-ranges {
+  margin-bottom: 25px !important;
+}
+
+.lty-lottery-progress-bar-loop .progress-track {
+  background-color: #29292c !important;
+  border: 1px solid #29292c !important;
+  border-radius: 2px !important;
+  overflow: hidden;
+  color: #fff !important;
+  position: relative;
+}
+.lty-lottery-progress-bar-loop .progress-track .progress-bar {
+  background: #4acfb5;
+  height: 20px;
+  border-radius: 5px;
+  background-color: #fcb800 !important;
+  overflow: visible;
+  position: relative;
+  border-radius: 0 !important;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  overflow: hidden;
+  color: #fff;
+  text-align: center;
+  white-space: nowrap;
+  background-color: #007bff;
+  transition: width 0.6s ease;
+}
+.lty-lottery-progress-bar-loop .progress-track .mini-label {
+  z-index: 50;
+  position: absolute;
+  font-size: 12px;
+  right: 5px;
+  top: 50%;
+  transform: translateY(-50%);
+  font-weight: bold;
+  color: #171717;
+  color: #fff !important;
+  font-size: 11px !important;
+  right: 50% !important;
+  transform: translate(50%, -50%) !important;
+  text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.82);
+  letter-spacing: 0.05rem;
+  font-weight: 900 !important;
+}
+.lty-lottery-progress-bar-loop.lty-addons-bar {
+  padding-top: 0;
+  margin: 25px 0 30px;
+}
+.lty-lottery-progress-bar-loop.lty-addons-bar .tickets-sold {
+  text-align: left;
+  font-size: 14px;
+  color: #fff;
+  font-weight: 900;
+  margin-bottom: 10px;
+  text-transform: uppercase;
+  letter-spacing: 0.1rem;
+}
+.lty-lottery-progress-bar-loop.lty-addons-bar .tickets-sold strong {
+  color: #fcb800;
+  font-weight: 900;
+}
+
+.elementor-menu-cart__toggle .elementor-button {
+  flex-direction: row !important;
+  gap: 10px;
+}
+
+#award_check_icon_style i {
+  background: #289894;
+  padding: 8px 28px 8px 8px;
+  border-radius: 3px;
+}
+
+.custom_svg_icon_style svg {
+  border-radius: 6px;
+}
+
+span.asterisk {
+  color: #e85c41;
+  font-size: 150%;
+  font-weight: normal;
+  position: relative;
+  top: 5px;
+}
+
+.home_subscribe_form .submit-btn {
+  background: transparent;
+  border-width: 2px;
+  border-color: #fcb800;
+  border-radius: 30px;
+  display: flex;
+  margin: 20px auto 0;
+  font-family: "Urbanist";
+  font-weight: 700;
+  letter-spacing: 1.6px;
+}
+
+.home_subscribe_form .submit-btn:hover {
+  background: #fcb800;
+  border-color: #fcb800;
+}
+
+.how_to_play_top_left_shape:before {
+  content: "";
+  width: 0;
+  height: 0;
+  border-style: solid;
+  border-width: 35px 35px 0 0;
+  border-color: #fcb800 transparent transparent;
+  position: absolute;
+  left: 0;
+  top: 0;
+}
+
+a.additiona_single_text {
+  color: #fcb800;
+}
+
+.turms__condition .elementor-tabs-content-wrapper .elementor-tab-mobile-title {
+  background-color: #fcb800;
+  border-radius: 0.25rem;
+}
+
+.turms__condition .elementor-tabs-wrapper .elementor-active {
+  background-color: #fcb800;
+  border-radius: 0.25rem;
+}
+
+.turms__condition .elementor-tabs-wrapper {
+  background-color: #242424;
+  border: 1px solid #444;
+  padding: 20px;
+  text-align: center;
+  border-radius: 0.25rem;
+}
+
+.turms__condition .elementor-tabs-wrapper .elementor-active {
+  background-color: #fcb800;
+  border-radius: 0.25rem;
+}
+
+.woocommerce-cart-form__contents th {
+  background: linear-gradient(90deg, #c98517 0, #fcb700 50%, #c98517 100%) !important;
+}
+
+tr.woocommerce-cart-form__cart-item.cart_item td {
+  border: 1px solid #dee2e6;
+}
+
+.woocommerce a.remove {
+  color: #fcb700;
+  opacity: 1;
+}
+
+.woocommerce-page table.cart td.actions .button, .woocommerce-page #content table.cart td.actions .button {
+  opacity: 1;
+}
+
+.woocommerce a.button:hover, .woocommerce button.button.alt:hover, .woocommerce-page table.cart td.actions .button:hover, .woocommerce-page #content table.cart td.actions .button:hover, .woocommerce a.button.alt:hover, .woocommerce .woocommerce-message a.button:hover, .ast-site-header-cart .widget_shopping_cart .buttons .button.checkout:hover, .woocommerce button.button.alt.disabled:hover, .wc-block-grid__products .wc-block-grid__product .wp-block-button__link:hover {
+  border-color: #fcb800;
+  background-color: #fcb800;
+}
+
+.woocommerce-billing-fields h3,
+.woocommerce-additional-fields h3,
+#order_review_heading {
+  color: #fff;
+}
+
+.woocommerce button.button.alt {
+  background: #fcb800;
+}
+
+a.woocommerce-privacy-policy-link {
+  color: #fcb800;
+}
+
+.woocommerce a.button, .woocommerce button.button, .woocommerce .woocommerce-message a.button, .woocommerce #respond input#submit.alt, .woocommerce a.button.alt, .woocommerce button.button.alt, .woocommerce input.button.alt, .woocommerce input.button, .woocommerce-cart table.cart td.actions .button, .woocommerce form.checkout_coupon .button, .woocommerce #respond input#submit, .wc-block-grid__products .wc-block-grid__product .wp-block-button__link {
+  border-radius: 2px;
+  padding-top: 15px;
+  padding-right: 30px;
+  padding-bottom: 15px;
+  padding-left: 30px;
+  background-color: #fcb800;
+  font-weight: 700 !important;
+  color: #111;
+}
+
+body .woocommerce-MyAccount-navigation-link {
+  border: 2px solid #f1ac05;
+}
+
+body .woocommerce-MyAccount-navigation-link a {
+  color: #fff;
 }
 
 /*# sourceMappingURL=global.css.map */

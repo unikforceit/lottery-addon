@@ -1,7 +1,7 @@
 (function($) {
     var slider = $( 'input[type="range"]' ),
         quantity = $( '.quantity_slide' );
-        minus = $( '.minus' ),
+    minus = $( '.minus' ),
         plus = $( '.plus' );
     slider.on( 'input', function() {
         var val = $(this).val();

@@ -102,7 +102,7 @@ function add_quantity_slider() {
         <input type="range" id="quantity" class="" name="quantity" min="<?php echo esc_attr( $min_value ); ?>" max="<?php echo esc_attr( $max_value ); ?>" step="<?php echo esc_attr( $step ); ?>" value="<?php echo esc_attr( $value ); ?>">
         <span class="max-qty"><?php echo esc_attr( $max_value ); ?></span>
         <input type="button" value="+" class="plus">
-        <output for="quantity"><?php echo esc_html( $value ); ?></output>
+        <span class="quantity_slide"><?php echo esc_html( $value ); ?></span>
     </div>
     <?php
 }
@@ -132,3 +132,19 @@ function addition_text_render_winners_count_template(){
     echo "For information about free postal entries, please <a class='additiona_single_text' href='https://showmethemoneycompetitions.com/terms-conditions/'>click here.</a>";
 }
 add_action('lty_lottery_single_product_content', 'addition_text_render_winners_count_template');
+
+add_action( 'woocommerce_product_query', 'exclude_out_of_stock_products' );
+function exclude_out_of_stock_products( $q ) {
+    $meta_query = $q->get( 'meta_query' );
+    $meta_query[] = array(
+        'key' => '_stock_status',
+        'value' => 'outofstock',
+        'compare' => 'NOT IN'
+    );
+    $meta_query[] = array(
+        'key' => '_lty_lottery_status',
+        'value' => 'lty_lottery_finished',
+        'compare' => 'NOT IN'
+    );
+    $q->set( 'meta_query', $meta_query );
+}
