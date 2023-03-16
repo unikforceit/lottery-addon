@@ -1,4 +1,3 @@
-@charset "UTF-8";
 body {
   background-color: #000 !important;
 }
@@ -59,28 +58,6 @@ p.price.lty-lottery-status {
   border-bottom: 1px solid #444;
 }
 
-.lty-shop-timer-wrapper::before {
-  content: "‎ ";
-  position: absolute;
-  left: 25px;
-  top: 40%;
-  background-image: url(http://lottery.test/wp-content/uploads/2023/03/timer-left.png);
-  width: 100%;
-  background-repeat: no-repeat;
-  background-size: 43px 18px;
-}
-
-.lty-shop-timer-wrapper::after {
-  content: "‎ ";
-  position: absolute;
-  left: 77%;
-  top: 40%;
-  background-image: url(http://lottery.test/wp-content/uploads/2023/03/timer-left-Copy.png);
-  width: 100%;
-  background-repeat: no-repeat;
-  background-size: 43px 18px !important;
-}
-
 .woocommerce ul.products li.product .ast-woo-product-category, .woocommerce-page ul.products li.product .ast-woo-product-category {
   display: none;
 }
@@ -115,20 +92,6 @@ p.price.lty-lottery-status {
   border-color: #fcb800;
   background-color: #fcb800;
   color: #111;
-}
-
-a.button.wp-element-button.product_type_lottery.add_to_cart_button:after {
-  content: "";
-  position: absolute;
-  right: 15px;
-  top: 50%;
-  transform: translateY(-50%);
-  width: 11px;
-  height: 20px;
-  background-image: url(http://lottery.test/wp-content/uploads/2023/03/icon-arrow-button.svg);
-  background-size: 11px 20px;
-  background-repeat: no-repeat;
-  transition: 0.3s;
 }
 
 .woocommerce ul.products li.product .star-rating, .woocommerce-page ul.products li.product .star-rating {
@@ -377,6 +340,11 @@ body.single-product .summary .price .woocommerce-Price-amount {
   background-position: left 10px center, right 20px center !important;
   background-repeat: no-repeat !important;
   background-size: 43px 18px !important;
+}
+@media (max-width: 768px) {
+  .lty-shop-timer-wrapper {
+    background-image: none !important;
+  }
 }
 
 .winner-lists-lottery-addons {

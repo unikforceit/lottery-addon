@@ -170,7 +170,6 @@ function lty_addons_add_tabs( $tabs ) {
 
 // Callback function to display the custom tab content
 function rules_tab_content() {
-    echo '<h3>' . __( 'RULES', 'woocommerce' ) . '</h3>';
     echo '<p>' . __( 'This competition is open to UK residents aged 18 or over.
      You may enter this competition up to 500 times. You will be randomly allocated ticket number(s) 
      when ordering and will receive an email confirmation. The total amount of tickets for this competition 
@@ -196,8 +195,10 @@ function woocommerce_output_product_data_tabs() {
         <div class="woocommerce-tabs">
             <div class="accordion">
                 <?php foreach ( $tabs as $key => $tab ) : ?>
-                    <h3><?php echo esc_html( $tab['title'] ); ?></h3>
-                    <div><?php call_user_func( $tab['callback'], $key, $tab ); ?></div>
+                    <div class="accordion-item">
+                        <h3><?php echo esc_html( $tab['title'] ); ?></h3>
+                        <div><?php call_user_func( $tab['callback'], $key, $tab ); ?></div>
+                    </div>
                 <?php endforeach; ?>
             </div>
         </div>
