@@ -104,6 +104,7 @@ p.price.lty-lottery-status {
 .quantity-range-slider {
   display: flex;
   align-items: center;
+  column-gap: 10px;
 }
 
 .quantity-range-slider label {
@@ -690,4 +691,40 @@ body .woocommerce-MyAccount-navigation-link {
 }
 body .woocommerce-MyAccount-navigation-link a {
   color: #fff;
+}
+.lty_addon_woocommerce-tabs {
+  max-width: 810px;
+  margin: 60px auto;
+  .lty_addon_accordion_head {
+    display: block;
+    width: 100%;
+    text-align: left;
+    margin: 0;
+    padding: 15px;
+    font-size: 18px;
+    position: relative;
+    color: #fff;
+    background-color: #111;
+    font-family: urbanist,sans-serif;
+    text-transform: uppercase;
+    font-weight: 700;
+    letter-spacing: .1rem;
+    border-bottom: 1px solid;
+    border-bottom-color: #fcb800;
+    cursor: pointer;
+  }
+  .lty_addon_accordion_body {
+    display: none;
+   h4{
+     margin-top: 15px;
+     color: #ffffff;
+   }
+  }
+  .lty_addon_accordion_body p {
+    padding: 18px 5px;
+    margin: 0px;
+  }
+  .plusminus {
+    float:right;
+  }
 }

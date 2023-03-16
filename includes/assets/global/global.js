@@ -24,6 +24,9 @@
         }
         slider.val( val ).trigger( 'input' );
     });
+    $(".lty_addon_accordion_head").on("click", function (){
+       $(this).next().slideToggle();
+    });
     //    add custom text after after price in shop page
     $( "body.single-product .summary .price .woocommerce-Price-amount" ).append( "<span class='lta_after_price'>Per Entry</span>" );
 })(jQuery);
