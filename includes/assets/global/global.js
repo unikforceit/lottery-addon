@@ -25,5 +25,5 @@
         slider.val( val ).trigger( 'input' );
     });
     //    add custom text after after price in shop page
-    $( "span.woocommerce-Price-amount.amount:last-child" ).append( "<span class='lta_after_price'>Per Entry</span>" );
+    $( "body.single-product .summary .price .woocommerce-Price-amount" ).append( "<span class='lta_after_price'>Per Entry</span>" );
 })(jQuery);

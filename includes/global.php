@@ -148,3 +148,62 @@ function exclude_out_of_stock_products( $q ) {
     );
     $q->set( 'meta_query', $meta_query );
 }
+// Remove existing tabs
+add_filter( 'woocommerce_product_tabs', 'lty_addons_remove_tabs', 98 );
+function lty_addons_remove_tabs( $tabs ) {
+    unset( $tabs['additional_information'] );  // Remove the "Description" tab
+    unset( $tabs['reviews'] );      // Remove the "Reviews" tab
+    return $tabs;
+}
+
+// Add new tabs
+add_filter( 'woocommerce_product_tabs', 'lty_addons_add_tabs', 99 );
+function lty_addons_add_tabs( $tabs ) {
+    // Add a new "Custom Tab" tab
+    $tabs['custom_tab'] = array(
+        'title'     => __( 'RULES', 'woocommerce' ),
+        'priority'  => 50,
+        'callback'  => 'rules_tab_content'
+    );
+    return $tabs;
+}
+
+// Callback function to display the custom tab content
+function rules_tab_content() {
+    echo '<h3>' . __( 'RULES', 'woocommerce' ) . '</h3>';
+    echo '<p>' . __( 'This competition is open to UK residents aged 18 or over.
+     You may enter this competition up to 500 times. You will be randomly allocated ticket number(s) 
+     when ordering and will receive an email confirmation. The total amount of tickets for this competition 
+     is (61999). If all tickets do not sell out, the draw will happen on March 19, 2023 regardless.
+      You may enter the competition online, or for free by post by sending your entry to Northern 
+      Competitions on a postcard. You must have an account on Northern Competitions for your entry
+       to be processed. All details on your entry MUST correspond to the details on your account
+        to receive the order confirmation and ticket number. Postal entries received without a
+         registered account cannot be processed. The live draw will take place on Northern Competitions
+          Facebook page using Google’s random number generator to select the winning ticket number 
+          from all Entrants. This competition is in no way sponsored, endorsed, administered by or 
+          associated with Facebook, Apple or Google. By entering the competitions, Entrants agree 
+          that neither Facebook, Apple nor Google have any 
+    liability and are not responsible for the administration or promotion of this competition.', 'woocommerce' ) . '</p>';
+}
+function woocommerce_output_product_data_tabs() {
+    global $product;
+
+    $tabs = apply_filters( 'woocommerce_product_tabs', array() );
+
+    if ( ! empty( $tabs ) ) : ?>
+
+        <div class="woocommerce-tabs">
+            <div class="accordion">
+                <?php foreach ( $tabs as $key => $tab ) : ?>
+                    <h3><?php echo esc_html( $tab['title'] ); ?></h3>
+                    <div><?php call_user_func( $tab['callback'], $key, $tab ); ?></div>
+                <?php endforeach; ?>
+            </div>
+        </div>
+
+    <?php endif; ?>
+    <?php
+}
+//remove_action( 'woocommerce_after_single_product_summary', 'woocommerce_output_product_data_tabs', 10 );
+//add_action( 'woocommerce_after_single_product_summary', 'woocommerce_output_product_data_tabs', 10 );
