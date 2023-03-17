@@ -711,4 +711,46 @@ body .woocommerce-MyAccount-navigation-link a {
   float: right;
 }
 
+header.entry-header .entry-title {
+  color: #fff;
+}
+
+body .woocommerce-MyAccount-navigation-link a {
+  color: #f1ac05;
+}
+
+a {
+  color: #f1ac05;
+}
+
+.woocommerce h2, .woocommerce-account h2 {
+  color: #fff;
+}
+
+@media screen and (max-width: 575px) {
+  .lty-lottery-countdown-timer #lty_lottery_days, .lty-lottery-countdown-timer #lty_lottery_hours, .lty-lottery-countdown-timer #lty_lottery_minutes, .lty-lottery-countdown-timer #lty_lottery_seconds {
+    color: #ffffff !important;
+    font-size: 18px;
+  }
+
+  .lty-shop-timer-wrapper .lty-shop-timer-container .lty-shop-timer-section {
+    font-size: 60%;
+  }
+
+  p.price.lty-lottery-status {
+    font-size: 11px !important;
+    letter-spacing: 0.05rem;
+  }
+
+  .woocommerce ul.products li.product .woocommerce-loop-product__title, .woocommerce-page ul.products li.product .woocommerce-loop-product__title {
+    font-size: 13px !important;
+    margin: 0 5px !important;
+  }
+
+  .woocommerce ul.products li.product .button, .woocommerce-page ul.products li.product .button {
+    text-align: center !important;
+    padding: 5px !important;
+  }
+}
+
 /*# sourceMappingURL=global.css.map */

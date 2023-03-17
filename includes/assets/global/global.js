@@ -29,4 +29,5 @@
     });
     //    add custom text after after price in shop page
     $( "body.single-product .summary .price .woocommerce-Price-amount" ).append( "<span class='lta_after_price'>Per Entry</span>" );
+    $( ".woocommerce ul.products li.product .price ins" ).append( "<span class='lta_after_price'>Per Entry</span>" );
 })(jQuery);

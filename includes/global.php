@@ -160,11 +160,6 @@ function exclude_out_of_stock_products($q)
 {
     $meta_query = $q->get('meta_query');
     $meta_query[] = array(
-        'key' => '_stock_status',
-        'value' => 'outofstock',
-        'compare' => 'NOT IN'
-    );
-    $meta_query[] = array(
         'key' => '_lty_lottery_status',
         'value' => 'lty_lottery_finished',
         'compare' => 'NOT IN'
@@ -254,8 +249,13 @@ function woocommerce_output_product_data_tabs()
             <div class="lty_addon_accordion">
                 <?php foreach ($tabs as $key => $tab) : ?>
                     <div class="lty_addon_accordion-item <?php echo esc_attr($key); ?>">
-                        <h3 class="lty_addon_accordion_head"><?php echo esc_html($tab['title']); ?><span
+                        <?php if ($key == 'description'){?>
+                        <h3 class="lty_addon_accordion_head"><?php echo esc_html('Prize Description'); ?><span
                                     class="plusminus">+</span></h3>
+                <?php } else {?>
+                            <h3 class="lty_addon_accordion_head"><?php echo esc_html($tab['title']); ?><span
+                                        class="plusminus">+</span></h3>
+                <?php } ?>
                         <div class="lty_addon_accordion_body"><?php call_user_func($tab['callback'], $key, $tab); ?></div>
                     </div>
                 <?php endforeach; ?>
@@ -268,3 +268,4 @@ function woocommerce_output_product_data_tabs()
 
 remove_action('woocommerce_after_single_product_summary', 'woocommerce_output_product_data_tabs', 10);
 add_action('woocommerce_after_single_product_summary', 'woocommerce_output_product_data_tabs', 10);
+
