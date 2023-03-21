@@ -268,4 +268,43 @@ function woocommerce_output_product_data_tabs()
 
 remove_action('woocommerce_after_single_product_summary', 'woocommerce_output_product_data_tabs', 10);
 add_action('woocommerce_after_single_product_summary', 'woocommerce_output_product_data_tabs', 10);
-
+function lty_addons_after_shop_function() {
+    if ( is_shop() ) { // Only display on shop page
+        // Your custom query to get products goes here
+        $args = array(
+            'post_type' => 'product',
+            'posts_per_page' => 6,
+            'tax_query' => array(
+                array(
+                    'taxonomy' => 'product_type',
+                    'field'    => 'slug',
+                    'terms'    => 'lottery',
+                ),
+            ),
+            'meta_query' => array(
+                array(
+                    'key' => '_lty_lottery_status',
+                    'value' => 'lty_lottery_finished',
+                    'compare' => '='
+                )
+            ),
+        );
+        $products = new WP_Query( $args );
+        ?>
+        <div class="finished-title-lty-ad">
+            <h2>Finished Competitions</h2>
+        </div>
+        <?php
+        // Display products using same loop look
+        if ( $products->have_posts() ) {
+            echo '<ul class="products columns-' . wc_get_loop_prop( 'columns' ) . '">';
+            while ( $products->have_posts() ) {
+                $products->the_post();
+                wc_get_template_part( 'content', 'product' );
+            }
+            echo '</ul>';
+        }
+        wp_reset_postdata();
+    }
+}
+add_action( 'woocommerce_after_shop_loop', 'lty_addons_after_shop_function' );

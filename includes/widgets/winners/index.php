@@ -45,6 +45,17 @@ class lotteryaddons_winners extends Widget_Base
             ]
         );
         $this->add_control(
+            'show_image',
+            [
+                'label' => __( 'Show Image', 'lotteryaddons' ),
+                'type' => Controls_Manager::SWITCHER,
+                'default' => 'no',
+                'label_on' => esc_html__( 'Show', 'lotteryaddons' ),
+                'label_off' => esc_html__( 'Hide', 'lotteryaddons' ),
+                'return_value' => 'yes',
+            ]
+        );
+        $this->add_control(
             'show_pagi',
             [
                 'label' => __( 'Show Pagination', 'lotteryaddons' ),
@@ -85,9 +96,13 @@ class lotteryaddons_winners extends Widget_Base
                     $end_date = \LTY_Date_Time::get_wp_format_datetime_from_gmt( $winner->get_product()->get_lty_end_date_gmt(), false, ' ', false );
                     ?>
                     <div class="winners-box-lt-a">
+                        <?php
+                            if ($settings['show_image']) {
+                        ?>
                         <div class="winner-img-lty-a">
                             <?php echo wp_kses_post($winner->get_product()->get_image('full')); ?>
                         </div>
+                         <?php } ?>
                         <div class="winner-body-txt">
                             <h4><?php echo esc_html($winner->get_product()->get_title()); ?></h4>
                             <p><?php echo esc_html($winner->get_user()->first_name); ?> <?php echo esc_html($winner->get_user()->last_name); ?> from <?php echo esc_html($order->get_billing_city()); ?>

@@ -761,3 +761,105 @@ a {
     padding: 5px!important;
   }
 }
+.woocommerce ul.products {
+  display: flex !important;
+  flex-wrap: wrap;
+  margin-right: -15px;
+  margin-left: -15px;
+  justify-content: center;
+}
+.woocommerce .woocommerce-ordering select, .woocommerce-page .woocommerce-ordering select {
+  background-color: #fff;
+  border: inherit;
+  border-radius: 0;
+  color: #111;
+}
+.woocommerce ul.products.columns-3 li.product {
+  flex: 0 0 33.3333333333%;
+  max-width: 33.3333333333%;
+  @media screen and (max-width: 767px){
+    flex: 0 0 48%;
+    max-width: 48%;
+  }
+}
+.woocommerce ul.products.columns-4 li.product {
+  flex: 0 0 25%;
+  max-width: 25%;
+  @media screen and (max-width: 767px){
+    flex: 0 0 48%;
+    max-width: 48%;
+  }
+}
+@media screen and (max-width: 767px){
+  .woocommerce ul.products, .woocommerce-page ul.products {
+    column-gap: 2%;
+  }
+  .lty-a-competition-results-wrapper .lty-a-result-wrap {
+    padding-left: 0;
+    margin-left: 0;
+    margin-right: 0;
+  }
+}
+.live_comp {
+  display: none;
+}
+.post-type-archive-product .live_comp {
+  display: block;
+}
+.all_title{
+  display: block;
+}
+.post-type-archive-product .all_title{
+  display: none;
+}
+.lty-frontend-table tbody td {
+  color: #f1ac05;
+  a {
+    color: #f1ac05;
+  }
+}
+.finished-title-lty-ad {
+  text-align: center;
+  margin-bottom: 60px;
+}
+.lty-a-competition-results-wrapper .lty-a-result-wrap{
+  position: relative;
+  &:before {
+    content: url('https://showmethemoneycompetitions.com/wp-content/uploads/2023/03/scrnli_3_20_2023_10-16-03-PM.png');
+    position: absolute;
+    left: -38px;
+    top: -4px;
+    @media screen and (max-width: 767px){
+      content: none;
+    }
+  }
+}
+.lty-shop-timer-wrapper-addon {
+  padding: 18px 20px 12px;
+  .lty-lottery-countdown-timer {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  .lty-shop-timer-section {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    .lty-addon-count-timer {
+      font-family: "Urbanist", Sans-serif;
+      font-size: 42px !important;
+      font-weight: 900;
+      line-height: 1;
+      padding: 0 10px;
+    }
+    .lty-addon-title {
+      color: #000000;
+      font-family: "Urbanist", Sans-serif;
+      font-size: 12px;
+      font-weight: 700;
+      text-transform: uppercase;
+    }
+  }
+}
