@@ -173,7 +173,7 @@ function lty_addons_remove_tabs($tabs)
 {
     unset($tabs['additional_information']);  // Remove the "Description" tab
     unset($tabs['reviews']);      // Remove the "Reviews" tab
-    unset($tabs['lty_ticket_logs']);      // Remove the "Reviews" tab
+    //unset($tabs['lty_ticket_logs']);      // Remove the "Reviews" tab
     return $tabs;
 }
 
