@@ -873,4 +873,8 @@ a {
   text-transform: uppercase;
 }
 
+.lty-frontend-table tbody tr:nth-child(2n) {
+  background: transparent;
+}
+
 /*# sourceMappingURL=global.css.map */

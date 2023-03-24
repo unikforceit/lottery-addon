@@ -265,7 +265,6 @@ function woocommerce_output_product_data_tabs()
     <?php endif; ?>
     <?php
 }
-
 remove_action('woocommerce_after_single_product_summary', 'woocommerce_output_product_data_tabs', 10);
 add_action('woocommerce_after_single_product_summary', 'woocommerce_output_product_data_tabs', 10);
 function lty_addons_after_shop_function() {
@@ -308,3 +307,10 @@ function lty_addons_after_shop_function() {
     }
 }
 add_action( 'woocommerce_after_shop_loop', 'lty_addons_after_shop_function' );
+add_filter( 'woocommerce_product_tabs', 'reorder_product_tabs', 98 );
+
+function reorder_product_tabs( $tabs ) {
+    $tabs['lty_ticket_logs']['priority'] = 5;
+    $tabs['description']['priority'] = 10;
+    return $tabs;
+}
