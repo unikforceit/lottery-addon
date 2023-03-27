@@ -173,7 +173,7 @@ function lty_addons_remove_tabs($tabs)
 {
     unset($tabs['additional_information']);  // Remove the "Description" tab
     unset($tabs['reviews']);      // Remove the "Reviews" tab
-    //unset($tabs['lty_ticket_logs']);      // Remove the "Reviews" tab
+    unset($tabs['description']);      // Remove the "Reviews" tab
     return $tabs;
 }
 
@@ -311,6 +311,11 @@ add_filter( 'woocommerce_product_tabs', 'reorder_product_tabs', 98 );
 
 function reorder_product_tabs( $tabs ) {
     $tabs['lty_ticket_logs']['priority'] = 5;
-    $tabs['description']['priority'] = 10;
     return $tabs;
+}
+
+add_action('lty_after_add_to_cart_form', 'lty_show_description', 11);
+
+function lty_show_description(){
+    woocommerce_product_description_tab();
 }
