@@ -93,6 +93,7 @@ class lotteryaddons_winners extends Widget_Base
                     $winner = lty_get_lottery_winner(get_the_ID());
                     $order_id = $winner->get_order_id();
                     $order = wc_get_order($order_id);
+                    $city = !empty($order) ? $order->get_billing_city() : '';
                     $end_date = \LTY_Date_Time::get_wp_format_datetime_from_gmt( $winner->get_product()->get_lty_end_date_gmt(), false, ' ', false );
                     ?>
                     <div class="winners-box-lt-a">
@@ -105,7 +106,7 @@ class lotteryaddons_winners extends Widget_Base
                          <?php } ?>
                         <div class="winner-body-txt">
                             <h4><?php echo esc_html($winner->get_product()->get_title()); ?></h4>
-                            <p><?php echo esc_html($winner->get_user()->first_name); ?> <?php echo esc_html($winner->get_user()->last_name); ?> from <?php echo esc_html($order->get_billing_city()); ?>
+                            <p><?php echo esc_html($winner->get_user()->first_name); ?> <?php echo esc_html($winner->get_user()->last_name); ?> from <?php echo esc_html($city); ?>
                                 <?php echo esc_html( $end_date ); ?></p>
                             <span>Ticket #<?php echo esc_html($winner->get_lottery_ticket_number()); ?></span>
                         </div>

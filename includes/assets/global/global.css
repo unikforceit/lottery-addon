@@ -877,4 +877,8 @@ a {
   background: transparent;
 }
 
+.single-product .lty-lottery-date-ranges {
+  background-image: none !important;
+}
+
 /*# sourceMappingURL=global.css.map */
